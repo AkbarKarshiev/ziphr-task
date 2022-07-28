@@ -1,0 +1,17 @@
+<ng-container [ngSwitch]="layoutTypes$ | async">
+  <ng-container *ngSwitchDefault>
+    <main>
+      Handset
+    </main>
+  </ng-container>
+  <ng-container *ngSwitchCase="breakpoints.Tablet">
+    <main>
+      Tablet
+    </main>
+  </ng-container>
+  <ng-container *ngSwitchCase="breakpoints.Web">
+    <main>
+      Web
+    </main>
+  </ng-container>
+</ng-container>

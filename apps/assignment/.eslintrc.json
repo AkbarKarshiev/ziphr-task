@@ -62,7 +62,7 @@
         "simple-import-sort/imports": [
           "error",
           {
-            "groups": [["^\\u0000"], ["^@?(?!ziphr)\\w"], ["^@ziphr?\\w"], ["^\\w"], ["^[^.]"], ["^\\."]]
+            "groups": [["^\\u0000"], ["^@?(?!ziphr-task)\\w"], ["^@ziphr-task?\\w"], ["^\\w"], ["^[^.]"], ["^\\."]]
           }
         ],
         "sort-imports": "off",

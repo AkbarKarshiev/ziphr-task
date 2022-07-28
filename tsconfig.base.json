@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ziphr-task/core/layout": ["libs/core/layout/src/index.ts"],
+      "@ziphr-task/core/navigation/common": [
+        "libs/core/navigation/common/src/index.ts"
+      ],
+      "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -3,6 +3,9 @@
   "version": 2,
   "projects": {
     "assignment": "apps/assignment",
-    "assignment-e2e": "apps/assignment-e2e"
+    "assignment-e2e": "apps/assignment-e2e",
+    "core-layout": "libs/core/layout",
+    "core-navigation-common": "libs/core/navigation/common",
+    "ui-layout": "libs/ui/layout"
   }
 }
