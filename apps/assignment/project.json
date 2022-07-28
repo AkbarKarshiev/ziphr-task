@@ -1,7 +1,7 @@
 {
   "projectType": "application",
   "sourceRoot": "apps/assignment/src",
-  "prefix": "ziphr-task",
+  "prefix": "ziphr",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
