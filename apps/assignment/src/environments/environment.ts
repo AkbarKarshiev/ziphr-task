@@ -2,7 +2,11 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+import { Environments } from "@ziphr-task/core/environments/service";
+
+export const environment: Environments = {
+  brand: 'My App',
+  appHost: 'http://localhost',
   production: false,
 };
 

@@ -1,0 +1,21 @@
+<ul
+  class="nav nav-pills"
+  [ngClass]="{
+    'nav-fill': orientation === 'vertical',
+    'flex-column': orientation === 'vertical'
+  }"
+>
+  <li class="nav-item" *ngFor="let link of links; trackBy: trackByFn">
+    <a
+      class="nav-link active"
+      #rla="routerLinkActive"
+      routerLinkActive=""
+      [attr.aria-label]="link.label"
+      [class.active]="rla.isActive"
+      [routerLinkActiveOptions]="link.routerLinkActiveOptions || { exact: false }"
+      [routerLink]="link.route | path"
+    >
+      {{ link.label }}
+    </a>
+  </li>
+</ul>

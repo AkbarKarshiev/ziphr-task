@@ -1,0 +1,24 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: block;
+}
+
+a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+
+  padding: bs5.$nav-link-padding-y bs5.$nav-link-padding-x bs5.$nav-link-padding-y 0;
+  font-weight: bs5.$font-weight-bold;
+
+  @include bs5.media-breakpoint-up(xl) {
+    padding: bs5.$nav-link-padding-y bs5.$nav-link-padding-x;
+  }
+
+  :focus {
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 0 0 0.1rem;
+  }
+}

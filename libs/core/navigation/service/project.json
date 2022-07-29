@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/core/navigation/service/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/core/navigation/service"],
+      "options": {
+        "jestConfig": "libs/core/navigation/service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/core/navigation/service/**/*.ts",
+          "libs/core/navigation/service/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

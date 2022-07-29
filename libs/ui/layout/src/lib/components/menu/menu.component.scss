@@ -1,0 +1,13 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: block;
+}
+
+.nav-pills {
+  .nav-link {
+    text-transform: capitalize;
+    text-align: start;
+  }
+}
+

@@ -4,8 +4,12 @@
   "projects": {
     "assignment": "apps/assignment",
     "assignment-e2e": "apps/assignment-e2e",
+    "core-environments-service": "libs/core/environments/service",
     "core-layout": "libs/core/layout",
     "core-navigation-common": "libs/core/navigation/common",
+    "core-navigation-service": "libs/core/navigation/service",
+    "core-navigation-ui-pipes": "libs/core/navigation/ui/pipes",
+    "dashboard-page": "libs/dashboard/page",
     "ui-layout": "libs/ui/layout"
   }
 }

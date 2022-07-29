@@ -1,0 +1,8 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: block;
+  background-color: bs5.$gray-100;
+  padding: 10px;
+  width: 300px;
+}

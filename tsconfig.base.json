@@ -15,10 +15,23 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ziphr-task/core/environments/service": [
+        "libs/core/environments/service/src/index.ts"
+      ],
       "@ziphr-task/core/layout": ["libs/core/layout/src/index.ts"],
       "@ziphr-task/core/navigation/common": [
         "libs/core/navigation/common/src/index.ts"
       ],
+      "@ziphr-task/core/navigation/service": [
+        "libs/core/navigation/service/src/index.ts"
+      ],
+      "@ziphr-task/core/navigation/ui/pipes": [
+        "libs/core/navigation/ui/pipes/src/index.ts"
+      ],
+      "@ziphr-task/core/navigation/ui/service": [
+        "libs/core/navigation/ui/service/src/index.ts"
+      ],
+      "@ziphr-task/dashboard/page": ["libs/dashboard/page/src/index.ts"],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"]
     }
   },

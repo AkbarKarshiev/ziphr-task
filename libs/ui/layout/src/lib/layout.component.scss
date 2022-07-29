@@ -1,0 +1,23 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  width: 100%;
+
+  @include bs5.media-breakpoint-up(xl) {
+    flex-direction: row;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+
+  & > * {
+    width: 100%;
+  }
+}

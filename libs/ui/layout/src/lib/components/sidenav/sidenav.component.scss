@@ -1,0 +1,19 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  width: 100%;
+  height: 100%;
+  background-color: bs5.$gray-100;
+}
+
+ziphr-task-menu {
+  .nav-pills {
+    .nav-link {
+      width: 100%;
+    }
+  }
+
+  .nav-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
