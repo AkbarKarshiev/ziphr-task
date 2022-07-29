@@ -32,6 +32,9 @@
         "libs/core/navigation/ui/service/src/index.ts"
       ],
       "@ziphr-task/dashboard/page": ["libs/dashboard/page/src/index.ts"],
+      "@ziphr-task/dashboard/ui/banner": [
+        "libs/dashboard/ui/banner/src/index.ts"
+      ],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"]
     }
   },
