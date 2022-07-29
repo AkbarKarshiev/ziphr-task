@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+
 import { EnvironmentService } from "@ziphr-task/core/environments/service";
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 

@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LogoComponent } from "./logo.component";
-import { NavigationPipesModule } from "@ziphr-task/core/navigation/ui/pipes";
 import { RouterModule } from "@angular/router";
+
+import { NavigationPipesModule } from "@ziphr-task/core/navigation/ui/pipes";
+
+import { LogoComponent } from "./logo.component";
 
 @NgModule({
   declarations: [LogoComponent],
-  imports: [
-    CommonModule,
-    NavigationPipesModule,
-    RouterModule
-  ],
+  imports: [NavigationPipesModule, RouterModule],
   exports: [LogoComponent]
 })
 export class LogoModule { }

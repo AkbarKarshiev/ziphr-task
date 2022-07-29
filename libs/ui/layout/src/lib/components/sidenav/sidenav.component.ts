@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
 import { NgbActiveOffcanvas } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({

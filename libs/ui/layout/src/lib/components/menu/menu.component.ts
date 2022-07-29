@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+
 import { NavigationLink, NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 
 export function getLinks(paths: NavigationPaths): NavigationLink[] {
