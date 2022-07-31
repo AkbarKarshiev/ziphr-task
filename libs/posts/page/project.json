@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/posts/page/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/posts/page"],
+      "options": {
+        "jestConfig": "libs/posts/page/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/posts/page/**/*.ts",
+          "libs/posts/page/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

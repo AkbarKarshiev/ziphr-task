@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/dashboard/ui/photos-list/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard/ui/photos-list"],
+      "options": {
+        "jestConfig": "libs/dashboard/ui/photos-list/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/ui/photos-list/**/*.ts",
+          "libs/dashboard/ui/photos-list/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

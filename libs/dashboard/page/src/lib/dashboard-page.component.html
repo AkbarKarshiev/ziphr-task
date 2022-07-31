@@ -1,42 +1,52 @@
 <div class="container py-3">
   <div class="row gy-4">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-md-12 col-lg-4">
       <ziphr-task-card>
         <ziphr-task-card-header>
-          Header
+          Statistics
         </ziphr-task-card-header>
         <ziphr-task-card-body>
-          Body content
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4 class="d-inline mb-0 text-teal fw-bold">
+                {{ 123 | number }}
+              </h4>
+              Posts
+            </div>
+            <div>
+              <h4 class="d-inline mb-0 text-teal fw-bold">
+                {{ 12 | number }}
+              </h4>
+              Albums
+            </div>
+            <div>
+              <h4 class="d-inline mb-0 text-teal fw-bold">
+                {{ 5000 | number }}
+              </h4>
+              Photos
+            </div>
+          </div>
         </ziphr-task-card-body>
-        <ziphr-task-card-footer>
-          Footer
-        </ziphr-task-card-footer>
       </ziphr-task-card>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <ziphr-task-card>
         <ziphr-task-card-header>
-          Header
+          Latest Posts
         </ziphr-task-card-header>
         <ziphr-task-card-body>
-          Body content
+          <ziphr-task-post-list></ziphr-task-post-list>
         </ziphr-task-card-body>
-        <ziphr-task-card-footer>
-          Footer
-        </ziphr-task-card-footer>
       </ziphr-task-card>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <ziphr-task-card>
         <ziphr-task-card-header>
-          Header
+          Recent Photos
         </ziphr-task-card-header>
         <ziphr-task-card-body>
-          Body content
+          <ziphr-task-photos-list></ziphr-task-photos-list>
         </ziphr-task-card-body>
-        <ziphr-task-card-footer>
-          Footer
-        </ziphr-task-card-footer>
       </ziphr-task-card>
     </div>
   </div>

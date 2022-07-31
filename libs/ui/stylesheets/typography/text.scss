@@ -1,0 +1,5 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+.text-teal {
+  color: bs5.$teal-500;
+}

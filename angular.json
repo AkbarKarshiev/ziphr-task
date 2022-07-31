@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "albums-page": "libs/albums/page",
     "assignment": "apps/assignment",
     "assignment-e2e": "apps/assignment-e2e",
     "core-environments-service": "libs/core/environments/service",
@@ -11,7 +12,12 @@
     "core-navigation-ui-pipes": "libs/core/navigation/ui/pipes",
     "dashboard-page": "libs/dashboard/page",
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
+    "dashboard-ui-photos-list": "libs/dashboard/ui/photos-list",
+    "dashboard-ui-posts-list": "libs/dashboard/ui/posts-list",
+    "photos-page": "libs/photos/page",
+    "posts-page": "libs/posts/page",
     "ui-card": "libs/ui/card",
-    "ui-layout": "libs/ui/layout"
+    "ui-layout": "libs/ui/layout",
+    "users-page": "libs/users/page"
   }
 }

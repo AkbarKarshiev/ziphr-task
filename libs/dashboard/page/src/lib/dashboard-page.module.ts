@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CardBodyModule, CardFooterModule, CardHeaderModule, CardModule } from "@ziphr-task/ui/card";
+import { PostsListModule } from "@ziphr-task/dashboard/ui/posts-list";
+import { PhotosListModule } from "@ziphr-task/dashboard/ui/photos-list";
+
 import { DashboardPageRoutingModule } from "./dashboard-page-routing.module";
 
 import { DashboardPageComponent } from './dashboard-page.component';
-import { CardBodyModule, CardFooterModule, CardHeaderModule, CardModule } from "@ziphr-task/ui/card";
 
 @NgModule({
   imports: [
@@ -13,7 +16,9 @@ import { CardBodyModule, CardFooterModule, CardHeaderModule, CardModule } from "
     CardModule,
     CardHeaderModule,
     CardBodyModule,
-    CardFooterModule
+    CardFooterModule,
+    PostsListModule,
+    PhotosListModule
   ],
   declarations: [DashboardPageComponent],
 })

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ziphr-task/albums/page": ["libs/albums/page/src/index.ts"],
       "@ziphr-task/core/environments/service": [
         "libs/core/environments/service/src/index.ts"
       ],
@@ -35,8 +36,21 @@
       "@ziphr-task/dashboard/ui/banner": [
         "libs/dashboard/ui/banner/src/index.ts"
       ],
+      "@ziphr-task/dashboard/ui/photos-list": [
+        "libs/dashboard/ui/photos-list/src/index.ts"
+      ],
+      "@ziphr-task/dashboard/ui/posts-list": [
+        "libs/dashboard/ui/posts-list/src/index.ts"
+      ],
+      "@ziphr-task/dashboard/ui/posts-list-item": [
+        "libs/dashboard/ui/posts-list-item/src/index.ts"
+      ],
+      "@ziphr-task/photos/page": ["libs/photos/page/src/index.ts"],
+      "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],
+      "@ziphr-task/posts/page": ["libs/posts/page/src/index.ts"],
       "@ziphr-task/ui/card": ["libs/ui/card/src/index.ts"],
-      "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"]
+      "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"],
+      "@ziphr-task/users/page": ["libs/users/page/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
