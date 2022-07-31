@@ -13,11 +13,10 @@ const routes: Routes = [
         path: NAVIGATION_PATHS.dashboard,
         loadChildren: () => import('@ziphr-task/dashboard/page').then((modules) => modules.DashboardPageModule),
       },
-      // {
-      //   path: NAVIGATION_PATHS.posts,
-      //   canActivate: [PostGuard],
-      //   loadChildren: () => import('@ziphr-task/posts/page').then((modules) => modules.PostsPageModule),
-      // }
+      {
+        path: NAVIGATION_PATHS.posts,
+        loadChildren: () => import('@ziphr-task/posts/page').then((modules) => modules.PostsPageModule),
+      },
       {
         path: '', redirectTo: NAVIGATION_PATHS.dashboard, pathMatch: 'full'
       },

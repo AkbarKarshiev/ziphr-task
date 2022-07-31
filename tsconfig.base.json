@@ -50,6 +50,7 @@
       "@ziphr-task/posts/page": ["libs/posts/page/src/index.ts"],
       "@ziphr-task/ui/card": ["libs/ui/card/src/index.ts"],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"],
+      "@ziphr-task/ui/pipes/nl2br": ["libs/ui/pipes/nl2br/src/index.ts"],
       "@ziphr-task/users/page": ["libs/users/page/src/index.ts"]
     }
   },
