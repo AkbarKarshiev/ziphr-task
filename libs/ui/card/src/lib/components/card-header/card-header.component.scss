@@ -1,0 +1,8 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: block;
+  background-color: bs5.$card-header-footer-bg;
+  padding: bs5.$nav-link-padding-y bs5.$nav-link-padding-x;
+  min-height: calc(#{bs5.$nav-link-padding-y}*2 + #{bs5.$font-size-base}*#{bs5.$line-height-base});
+}

@@ -35,6 +35,7 @@
       "@ziphr-task/dashboard/ui/banner": [
         "libs/dashboard/ui/banner/src/index.ts"
       ],
+      "@ziphr-task/ui/card": ["libs/ui/card/src/index.ts"],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"]
     }
   },

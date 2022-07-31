@@ -1,0 +1,8 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 500px;
+}

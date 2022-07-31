@@ -11,6 +11,7 @@
     "core-navigation-ui-pipes": "libs/core/navigation/ui/pipes",
     "dashboard-page": "libs/dashboard/page",
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
+    "ui-card": "libs/ui/card",
     "ui-layout": "libs/ui/layout"
   }
 }
