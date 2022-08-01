@@ -1,39 +1,37 @@
-<div class="container py-3">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb text-decoration-none">
-      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Photos</li>
-    </ol>
-  </nav>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb text-decoration-none">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Photos</li>
+  </ol>
+</nav>
 
-  <h2>
-    Photos
-  </h2>
-  <div class="row mb-3 gy-3">
-    <div class="col-md-3 col-xl-2">
-      <input type="text" class="form-control" placeholder="Search" aria-label="Search">
-    </div>
-    <div class="col-md-3 col-xl-2">
-      <select class="form-select" aria-label="User select">
-        <option selected>Album</option>
-        <option value="1">Album 1</option>
-        <option value="2">Album 2</option>
-        <option value="3">Album 3</option>
-      </select>
-    </div>
+<h2>
+  Photos
+</h2>
+<div class="row mb-3 gy-3">
+  <div class="col-md-3 col-xl-2">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search">
   </div>
-
-  <ziphr-task-card-photos-list class="mb-3"></ziphr-task-card-photos-list>
-
-  <ngb-pagination
-    class="d-flex justify-content-center"
-    [collectionSize]="5000"
-    [(page)]="page"
-    [maxSize]="3"
-    [pageSize]="5"
-    [rotate]="true"
-  >
-    <ng-template ngbPaginationPrevious>Prev</ng-template>
-    <ng-template ngbPaginationNext>Next</ng-template>
-  </ngb-pagination>
+  <div class="col-md-3 col-xl-2">
+    <select class="form-select" aria-label="User select">
+      <option selected>Album</option>
+      <option value="1">Album 1</option>
+      <option value="2">Album 2</option>
+      <option value="3">Album 3</option>
+    </select>
+  </div>
 </div>
+
+<ziphr-task-card-photos-list class="mb-3"></ziphr-task-card-photos-list>
+
+<ngb-pagination
+  class="d-flex justify-content-center"
+  [collectionSize]="5000"
+  [(page)]="page"
+  [maxSize]="3"
+  [pageSize]="5"
+  [rotate]="true"
+>
+  <ng-template ngbPaginationPrevious>Prev</ng-template>
+  <ng-template ngbPaginationNext>Next</ng-template>
+</ngb-pagination>
