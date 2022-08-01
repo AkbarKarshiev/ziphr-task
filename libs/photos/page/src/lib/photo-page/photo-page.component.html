@@ -1,0 +1,23 @@
+<div class="container py-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb text-decoration-none">
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item" aria-current="page"><a href="#">Photos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">1</li>
+    </ol>
+  </nav>
+
+  <h2>
+    accusamus beatae ad facilis cum similique qui sunt
+  </h2>
+
+  <div class="mb-3">
+    <a [routerLink]="paths.album | path : { id: 1 }" class="link-primary text-decoration-none d-inline-block">
+      View Album
+    </a>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <img src="https://via.placeholder.com/600/92c952" alt="photo" class="img-fluid">
+  </div>
+</div>
