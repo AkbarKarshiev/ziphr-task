@@ -1,1 +1,1 @@
-export * from './lib/users-page.module';
+export * from './lib/user-page.module';

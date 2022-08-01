@@ -13,13 +13,15 @@
     "core-navigation-ui-pipes": "libs/core/navigation/ui/pipes",
     "dashboard-page": "libs/dashboard/page",
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
-    "dashboard-ui-photos-list": "libs/dashboard/ui/photos-list",
-    "dashboard-ui-posts-list": "libs/dashboard/ui/posts-list",
     "photos-page": "libs/photos/page",
     "posts-page": "libs/posts/page",
     "ui-card": "libs/ui/card",
     "ui-card-photos-list": "libs/ui/card-photos-list",
     "ui-layout": "libs/ui/layout",
-    "users-page": "libs/users/page"
+    "ui-vertical-albums-list": "libs/ui/vertical-albums-list",
+    "ui-vertical-photos-list": "libs/ui/vertical-photos-list",
+    "ui-vertical-posts-list": "libs/ui/vertical-posts-list",
+    "users-page": "libs/users/page",
+    "users-ui-banner": "libs/users/ui/banner"
   }
 }

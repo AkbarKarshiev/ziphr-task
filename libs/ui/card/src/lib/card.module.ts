@@ -1,11 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CardComponent } from './card.component';
+import { CardHeaderModule } from "./components/card-header/card-header.module";
+import { CardBodyModule } from "./components/card-body/card-body.module";
+import { CardFooterModule } from "./components/card-footer/card-footer.module";
+import { CardHeaderComponent } from "./components/card-header/card-header.component";
+import { CardBodyComponent } from "./components/card-body/card-body.component";
+import { CardFooterComponent } from "./components/card-footer/card-footer.component";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CardHeaderModule,
+    CardBodyModule,
+    CardFooterModule
+  ],
   declarations: [CardComponent],
-  exports: [CardComponent]
+  exports: [
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
+    CardFooterComponent
+  ]
 })
 export class CardModule {}

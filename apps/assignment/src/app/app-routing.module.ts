@@ -26,6 +26,10 @@ const routes: Routes = [
         loadChildren: () => import('@ziphr-task/photos/page').then((modules) => modules.PhotosPageModule),
       },
       {
+        path: NAVIGATION_PATHS.user,
+        loadChildren: () => import('@ziphr-task/users/page').then((modules) => modules.UserPageModule),
+      },
+      {
         path: '', redirectTo: NAVIGATION_PATHS.dashboard, pathMatch: 'full'
       },
       // {

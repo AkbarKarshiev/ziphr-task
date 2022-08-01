@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardPageComponent } from "./dashboard-page.component";
-import { DashboardBannerComponent } from "@ziphr-task/dashboard/ui/banner";
+import { DashboardBannerComponent, DashboardBannerModule } from "@ziphr-task/dashboard/ui/banner";
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), DashboardBannerModule],
   exports: [RouterModule]
 })
 export class DashboardPageRoutingModule { }

@@ -51,13 +51,32 @@
       "@ziphr-task/photos/page": ["libs/photos/page/src/index.ts"],
       "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],
       "@ziphr-task/posts/page": ["libs/posts/page/src/index.ts"],
+      "@ziphr-task/ui/albums-vertical-list": [
+        "libs/ui/albums-vertical-list/src/index.ts"
+      ],
       "@ziphr-task/ui/card": ["libs/ui/card/src/index.ts"],
       "@ziphr-task/ui/card-photos-list": [
         "libs/ui/card-photos-list/src/index.ts"
       ],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"],
       "@ziphr-task/ui/pipes/nl2br": ["libs/ui/pipes/nl2br/src/index.ts"],
-      "@ziphr-task/users/page": ["libs/users/page/src/index.ts"]
+      "@ziphr-task/ui/posts-vertical-list": [
+        "libs/ui/posts-vertical-list/src/index.ts"
+      ],
+      "@ziphr-task/ui/vertical-albums-list": [
+        "libs/ui/vertical-albums-list/src/index.ts"
+      ],
+      "@ziphr-task/ui/vertical-photos-list": [
+        "libs/ui/vertical-photos-list/src/index.ts"
+      ],
+      "@ziphr-task/ui/vertical-pohots-list": [
+        "libs/ui/vertical-pohots-list/src/index.ts"
+      ],
+      "@ziphr-task/ui/vertical-posts-list": [
+        "libs/ui/vertical-posts-list/src/index.ts"
+      ],
+      "@ziphr-task/users/page": ["libs/users/page/src/index.ts"],
+      "@ziphr-task/users/ui/banner": ["libs/users/ui/banner/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
