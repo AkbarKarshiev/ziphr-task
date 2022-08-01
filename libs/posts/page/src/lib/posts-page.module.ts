@@ -4,12 +4,14 @@ import { PostsPageRoutingModule } from "./posts-page-routing.module";
 
 import { PostsPageComponent } from './posts-page.component';
 import { PostPageModule } from "./post-page/post-page.module";
+import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
     CommonModule,
     PostPageModule,
-    PostsPageRoutingModule
+    PostsPageRoutingModule,
+    NgbPaginationModule
   ],
   declarations: [PostsPageComponent],
 })

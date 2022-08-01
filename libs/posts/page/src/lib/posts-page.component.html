@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <table class="table table-bordered table-responsive">
+  <table class="table table-bordered table-responsive mb-3">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -85,4 +85,16 @@
       </tr>
     </tbody>
   </table>
+
+  <ngb-pagination
+    class="d-flex justify-content-center"
+    [collectionSize]="5000"
+    [(page)]="page"
+    [maxSize]="5"
+    [pageSize]="5"
+    [rotate]="true"
+  >
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+  </ngb-pagination>
 </div>
