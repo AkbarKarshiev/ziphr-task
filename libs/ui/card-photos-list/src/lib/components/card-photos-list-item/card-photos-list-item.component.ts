@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 
 @Component({
@@ -8,5 +8,7 @@ import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardPhotosListItemComponent {
+  @Input() viewAlbumLinkEnabled!: boolean;
+
   constructor(@Inject(PATHS) public readonly paths: NavigationPaths) {}
 }

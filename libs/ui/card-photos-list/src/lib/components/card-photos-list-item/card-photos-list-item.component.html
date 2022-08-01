@@ -3,7 +3,7 @@
   <a [routerLink]="paths.photo | path : { id: 1 }" class="link-primary text-decoration-none text-truncate d-block">
     accusamus beatae ad facilis cum similique qui sunt
   </a>
-  <div>
+  <div *ngIf="viewAlbumLinkEnabled">
     <a [routerLink]="paths.album | path : { id: 1 }" class="link-primary text-decoration-none">
       View Album
     </a>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ziphr-task-card-photos-list',
@@ -7,6 +7,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardPhotosListComponent implements OnInit {
+  @Input() viewAlbumLinkEnabled = true;
+
   dummyArr: number[] = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
   ];

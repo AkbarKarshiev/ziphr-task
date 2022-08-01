@@ -10,5 +10,4 @@ import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 })
 export class VerticalPostsListItemComponent {
   constructor(@Inject(PATHS) public readonly paths: NavigationPaths) {}
-
 }
