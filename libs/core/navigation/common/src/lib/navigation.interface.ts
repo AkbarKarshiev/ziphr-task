@@ -18,7 +18,7 @@ export interface NavigationPaths {
 export const NAVIGATION_PATHS: NavigationPaths = {
   dashboard: 'dashboard',
   posts: 'posts',
-  post: ':id',
+  post: 'posts/:id',
   albums: 'albums',
   album: 'albums/:id',
   photos: 'photos',

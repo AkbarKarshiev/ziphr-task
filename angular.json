@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "albums-page": "libs/albums/page",
+    "albums-ui-albums-list": "libs/albums/ui/albums-list",
     "assignment": "apps/assignment",
     "assignment-e2e": "apps/assignment-e2e",
     "core-environments-service": "libs/core/environments/service",
@@ -17,6 +18,7 @@
     "photos-page": "libs/photos/page",
     "posts-page": "libs/posts/page",
     "ui-card": "libs/ui/card",
+    "ui-card-photos-list": "libs/ui/card-photos-list",
     "ui-layout": "libs/ui/layout",
     "users-page": "libs/users/page"
   }

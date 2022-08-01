@@ -9,7 +9,6 @@ import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   imports: [
     CommonModule,
-    PostPageModule,
     PostsPageRoutingModule,
     NgbPaginationModule
   ],

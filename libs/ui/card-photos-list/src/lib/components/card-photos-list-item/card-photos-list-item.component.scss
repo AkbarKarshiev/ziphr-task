@@ -1,0 +1,10 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: block;
+  background-color: bs5.$gray-100;
+}
+
+.card-photo-list-item__body {
+  padding: 1rem;
+}
