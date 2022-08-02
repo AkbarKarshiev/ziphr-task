@@ -8,6 +8,7 @@ export const environment: Environments = {
   brand: 'My App',
   appHost: 'http://localhost',
   production: false,
+  api: 'https://jsonplaceholder.typicode.com'
 };
 
 /*

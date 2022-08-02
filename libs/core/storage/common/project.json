@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/core/storage/common/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/core/storage/common"],
+      "options": {
+        "jestConfig": "libs/core/storage/common/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/core/storage/common/**/*.ts",
+          "libs/core/storage/common/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
