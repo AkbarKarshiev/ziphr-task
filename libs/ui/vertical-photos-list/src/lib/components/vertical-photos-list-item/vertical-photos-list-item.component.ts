@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
+import { Photo } from "@ziphr-task/photos/common";
 
 @Component({
   selector: 'ziphr-task-vertical-photos-list-item',
@@ -8,5 +9,7 @@ import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VerticalPhotosListItemComponent {
+  @Input() photo!: Photo;
+
   constructor(@Inject(PATHS) public readonly paths: NavigationPaths) {}
 }

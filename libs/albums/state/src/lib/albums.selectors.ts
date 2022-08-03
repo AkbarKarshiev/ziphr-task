@@ -5,9 +5,11 @@ import { ALBUMS_FEATURE_KEY, albumsAdapter, AlbumsState } from "./albums.reducer
 // Lookup the 'Albums' feature state managed by NgRx
 export const selectAlbumsState = createFeatureSelector<AlbumsState>(ALBUMS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = albumsAdapter.getSelectors();
+const { selectAll, selectEntities, selectTotal } = albumsAdapter.getSelectors();
 
 export const selectAlbums = createSelector(selectAlbumsState, (state: AlbumsState) => selectAll(state));
+
+export const selectAlbumsCount = createSelector(selectAlbumsState, (state: AlbumsState) => selectTotal(state));
 
 export const selectAlbumsEntities = createSelector(selectAlbumsState, (state: AlbumsState) => selectEntities(state));
 

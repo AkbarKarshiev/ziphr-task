@@ -8,19 +8,19 @@
         <div class="d-flex justify-content-between">
           <div>
             <h4 class="d-inline mb-0 text-teal fw-bold">
-              {{ 123 | number }}
+              {{ postsCount$ | async | number }}
             </h4>
             Posts
           </div>
           <div>
             <h4 class="d-inline mb-0 text-teal fw-bold">
-              {{ 12 | number }}
+              {{ albumsCount$ | async | number }}
             </h4>
             Albums
           </div>
           <div>
             <h4 class="d-inline mb-0 text-teal fw-bold">
-              {{ 5000 | number }}
+              {{ photosCount$ | async | number }}
             </h4>
             Photos
           </div>
@@ -34,7 +34,7 @@
         Latest Posts
       </ziphr-task-card-header>
       <ziphr-task-card-body>
-        <ziphr-task-vertical-posts-list></ziphr-task-vertical-posts-list>
+        <ziphr-task-vertical-posts-list [posts]="posts$ | async"></ziphr-task-vertical-posts-list>
       </ziphr-task-card-body>
     </ziphr-task-card>
   </div>

@@ -5,9 +5,11 @@ import { POSTS_FEATURE_KEY, PostsState, postsAdapter } from './posts.reducer';
 // Lookup the 'Posts' feature state managed by NgRx
 export const selectPostsState = createFeatureSelector<PostsState>(POSTS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = postsAdapter.getSelectors();
+const { selectAll, selectEntities, selectTotal } = postsAdapter.getSelectors();
 
 export const selectPosts = createSelector(selectPostsState, (state: PostsState) => selectAll(state));
+
+export const selectPostsCount = createSelector(selectPostsState, (state: PostsState) => selectTotal(state));
 
 export const selectPostsEntities = createSelector(selectPostsState, (state: PostsState) => selectEntities(state));
 

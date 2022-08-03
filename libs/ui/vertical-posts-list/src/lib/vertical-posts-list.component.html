@@ -1,1 +1,4 @@
-<ziphr-task-vertical-posts-list-item *ngFor="let elem of dummyArr"></ziphr-task-vertical-posts-list-item>
+<ziphr-task-vertical-posts-list-item
+  *ngFor="let post of posts"
+  [post]="post"
+></ziphr-task-vertical-posts-list-item>

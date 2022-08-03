@@ -12,6 +12,8 @@ export class PostsFacade {
 
   posts$ = this.store.select(PostsSelectors.selectPosts);
 
+  postsCount$ = this.store.select(PostsSelectors.selectPostsCount);
+
   postsEntities$ = this.store.select(PostsSelectors.selectPostsEntities);
 
   post$ = (id: number) => this.store.select(PostsSelectors.selectPost(id));

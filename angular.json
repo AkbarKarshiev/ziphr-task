@@ -18,6 +18,8 @@
     "core-storage-common": "libs/core/storage/common",
     "core-storage-local": "libs/core/storage/local",
     "core-storage-memory": "libs/core/storage/memory",
+    "core-utils-destroy": "libs/core/utils/destroy",
+    "core-utils-operators": "libs/core/utils/operators",
     "dashboard-page": "libs/dashboard/page",
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
     "photos-api": "libs/photos/api",

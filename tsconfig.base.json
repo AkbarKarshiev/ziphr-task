@@ -48,6 +48,12 @@
       "@ziphr-task/core/storage/memory": [
         "libs/core/storage/memory/src/index.ts"
       ],
+      "@ziphr-task/core/utils/destroy": [
+        "libs/core/utils/destroy/src/index.ts"
+      ],
+      "@ziphr-task/core/utils/operators": [
+        "libs/core/utils/operators/src/index.ts"
+      ],
       "@ziphr-task/dashboard/page": ["libs/dashboard/page/src/index.ts"],
       "@ziphr-task/dashboard/ui/banner": [
         "libs/dashboard/ui/banner/src/index.ts"

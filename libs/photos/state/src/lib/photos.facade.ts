@@ -12,6 +12,8 @@ export class PhotosFacade {
 
   photos$ = this.store.select(PhotosSelectors.selectPhotos);
 
+  photosCount$ = this.store.select(PhotosSelectors.selectPhotosCount);
+
   photosEntities$ = this.store.select(PhotosSelectors.selectPhotosEntities);
 
   photo$ = (id: number) => this.store.select(PhotosSelectors.selectPhoto(id));

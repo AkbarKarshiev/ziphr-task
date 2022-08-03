@@ -5,9 +5,11 @@ import { PHOTOS_FEATURE_KEY, PhotosState, photosAdapter, } from './photos.reduce
 // Lookup the 'Photos' feature state managed by NgRx
 export const selectPhotosState = createFeatureSelector<PhotosState>(PHOTOS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = photosAdapter.getSelectors();
+const { selectAll, selectEntities, selectTotal } = photosAdapter.getSelectors();
 
 export const selectPhotos = createSelector(selectPhotosState, (state: PhotosState) => selectAll(state));
+
+export const selectPhotosCount = createSelector(selectPhotosState, (state: PhotosState) => selectTotal(state));
 
 export const selectPhotosEntities = createSelector(selectPhotosState, (state: PhotosState) => selectEntities(state));
 

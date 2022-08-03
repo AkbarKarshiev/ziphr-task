@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Post } from "@ziphr-task/posts/common";
 
 @Component({
   selector: 'ziphr-task-vertical-posts-list',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class VerticalPostsListComponent {
-  dummyArr: number[] = [1, 2, 3, 4, 5, 6,7, 8, 9, 10];
+  @Input() posts!: Post[] | null;
 }

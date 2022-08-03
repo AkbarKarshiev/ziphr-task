@@ -12,6 +12,8 @@ export class AlbumsFacade {
 
   albums$ = this.store.select(AlbumsSelectors.selectAlbums);
 
+  albumsCount$ = this.store.select(AlbumsSelectors.selectAlbumsCount)
+
   albumsEntities$ = this.store.select(AlbumsSelectors.selectAlbumsEntities);
 
   album$ = (id: number) => this.store.select(AlbumsSelectors.selectAlbum(id));
