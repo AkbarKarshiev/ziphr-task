@@ -48,6 +48,7 @@
       "@ziphr-task/core/storage/memory": [
         "libs/core/storage/memory/src/index.ts"
       ],
+      "@ziphr-task/core/store/root": ["libs/core/store/root/src/index.ts"],
       "@ziphr-task/core/utils/destroy": [
         "libs/core/utils/destroy/src/index.ts"
       ],
