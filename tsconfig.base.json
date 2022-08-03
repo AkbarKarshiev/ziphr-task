@@ -80,6 +80,7 @@
       "@ziphr-task/ui/albums-vertical-list": [
         "libs/ui/albums-vertical-list/src/index.ts"
       ],
+      "@ziphr-task/ui/breadcrumb": ["libs/ui/breadcrumb/src/index.ts"],
       "@ziphr-task/ui/card": ["libs/ui/card/src/index.ts"],
       "@ziphr-task/ui/card-photos-list": [
         "libs/ui/card-photos-list/src/index.ts"

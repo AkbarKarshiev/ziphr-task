@@ -31,6 +31,7 @@
     "posts-common": "libs/posts/common",
     "posts-page": "libs/posts/page",
     "posts-state": "libs/posts/state",
+    "ui-breadcrumb": "libs/ui/breadcrumb",
     "ui-card": "libs/ui/card",
     "ui-card-photos-list": "libs/ui/card-photos-list",
     "ui-layout": "libs/ui/layout",
