@@ -6,6 +6,7 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 import { rootInitialState, rootReducers } from "./root.reducer";
 import { RootRouterStateSerializerService } from "./root-router-state-serializer.service";
+import { RootStateFacade } from "./root-state.facade";
 
 @NgModule({
   imports: [
@@ -19,5 +20,6 @@ import { RootRouterStateSerializerService } from "./root-router-state-serializer
       serializer: RootRouterStateSerializerService
     })
   ],
+  providers: [RootStateFacade]
 })
 export class RootStoreModule {}
