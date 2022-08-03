@@ -4,8 +4,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { AlbumsStateModule } from "@ziphr-task/albums/state";
 import { ENVIRONMENTS } from "@ziphr-task/core/environments/service";
 import { NAVIGATION_PATHS, PATHS } from "@ziphr-task/core/navigation/common";
+import { PhotosStateModule } from "@ziphr-task/photos/state";
 import { PostsStateModule } from "@ziphr-task/posts/state";
 
 import { environment } from '../environments/environment';
@@ -21,7 +23,9 @@ import { environment } from '../environments/environment';
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    PostsStateModule
+    PostsStateModule,
+    AlbumsStateModule,
+    PhotosStateModule
   ],
   providers: [
     {

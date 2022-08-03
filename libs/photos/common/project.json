@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/photos/common/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/photos/common"],
+      "options": {
+        "jestConfig": "libs/photos/common/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/photos/common/**/*.ts",
+          "libs/photos/common/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

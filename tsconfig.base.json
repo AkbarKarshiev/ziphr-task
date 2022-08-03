@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ziphr-task/albums/api": ["libs/albums/api/src/index.ts"],
+      "@ziphr-task/albums/common": ["libs/albums/common/src/index.ts"],
       "@ziphr-task/albums/page": ["libs/albums/page/src/index.ts"],
+      "@ziphr-task/albums/state": ["libs/albums/state/src/index.ts"],
       "@ziphr-task/albums/ui/albums-list": [
         "libs/albums/ui/albums-list/src/index.ts"
       ],
@@ -58,7 +61,10 @@
       "@ziphr-task/dashboard/ui/posts-list-item": [
         "libs/dashboard/ui/posts-list-item/src/index.ts"
       ],
+      "@ziphr-task/photos/api": ["libs/photos/api/src/index.ts"],
+      "@ziphr-task/photos/common": ["libs/photos/common/src/index.ts"],
       "@ziphr-task/photos/page": ["libs/photos/page/src/index.ts"],
+      "@ziphr-task/photos/state": ["libs/photos/state/src/index.ts"],
       "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],
       "@ziphr-task/posts/api": ["libs/posts/api/src/index.ts"],
       "@ziphr-task/posts/common": ["libs/posts/common/src/index.ts"],

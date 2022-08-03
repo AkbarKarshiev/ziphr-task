@@ -14,7 +14,11 @@ export function metaServiceFactory(postsFacade: PostsFacade): () => void {
 }
 
 @NgModule({
-  imports: [PostsApiModule, StoreModule.forFeature(fromPosts.POSTS_FEATURE_KEY, fromPosts.postsReducer), EffectsModule.forFeature([PostsEffects]),],
+  imports: [
+    PostsApiModule,
+    StoreModule.forFeature(fromPosts.POSTS_FEATURE_KEY, fromPosts.postsReducer),
+    EffectsModule.forFeature([PostsEffects])
+  ],
   providers: [
     PostsFacade,
     {
