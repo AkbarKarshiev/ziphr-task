@@ -5,6 +5,7 @@ import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { NavigationPipesModule } from "@ziphr-task/core/navigation/ui/pipes";
 import { CardPhotosListModule } from "@ziphr-task/ui/card-photos-list";
+import { BreadcrumbModule } from "@ziphr-task/ui/breadcrumb";
 
 import { AlbumPageComponent } from './album-page.component';
 
@@ -15,7 +16,8 @@ import { AlbumPageComponent } from './album-page.component';
     RouterModule,
     NavigationPipesModule,
     NgbPaginationModule,
-    CardPhotosListModule
+    CardPhotosListModule,
+    BreadcrumbModule
   ],
   exports: [AlbumPageComponent]
 })

@@ -1,6 +1,13 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb text-decoration-none">
-    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Posts</li>
+    <li class="breadcrumb-item"><a [routerLink]="paths.dashboard | path">Dashboard</a></li>
+    <li
+      class="breadcrumb-item text-capitalize"
+      [class.active]="last"
+      *ngFor="let route of routesArr$ | async; let first = first; let last = last"
+    >
+      <a *ngIf="!last; else elseBlock" [routerLink]="route | path" class="">{{ route }}</a>
+      <ng-template #elseBlock>{{ route }}</ng-template>
+    </li>
   </ol>
 </nav>
