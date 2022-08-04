@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { LayoutComponent } from './layout.component';
-import { HeaderModule } from './components/header/header.module';
-import { SidebarModule } from './components/sidebar/sidebar.module';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+
+import { HeaderModule } from './components/header/header.module';
 import { LogoModule } from "./components/logo/logo.module";
 import { MenuModule } from "./components/menu/menu.module";
+import { SidebarModule } from './components/sidebar/sidebar.module';
+import { LayoutComponent } from './layout.component';
 
 @NgModule({
   imports: [CommonModule, HeaderModule, SidebarModule, RouterModule, LogoModule, MenuModule],
-  declarations: [LayoutComponent, SidenavComponent],
+  declarations: [LayoutComponent],
   exports: [LayoutComponent],
 })
 export class LayoutModule {}
