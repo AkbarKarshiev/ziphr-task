@@ -75,6 +75,7 @@
       "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],
       "@ziphr-task/posts/api": ["libs/posts/api/src/index.ts"],
       "@ziphr-task/posts/common": ["libs/posts/common/src/index.ts"],
+      "@ziphr-task/posts/guards": ["libs/posts/guards/src/index.ts"],
       "@ziphr-task/posts/page": ["libs/posts/page/src/index.ts"],
       "@ziphr-task/posts/state": ["libs/posts/state/src/index.ts"],
       "@ziphr-task/ui/albums-vertical-list": [

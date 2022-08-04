@@ -16,9 +16,9 @@ export class PostsFacade {
 
   postsEntities$ = this.store.select(PostsSelectors.selectPostsEntities);
 
-  post$ = (id: number) => this.store.select(PostsSelectors.selectPost(id));
+  postById$ = (id: string) => this.store.select(PostsSelectors.selectPost(id));
 
-  postByIdLoaded$ = (id: number) =>
+  postByIdLoaded$ = (id: string) =>
     this.posts$.pipe(
       filter((posts) => posts?.length > 0),
       switchMap(() => this.store.select(PostsSelectors.selectPost(id)))

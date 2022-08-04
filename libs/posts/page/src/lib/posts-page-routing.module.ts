@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 
+import { PostGuard, PostsGuardsModule } from "@ziphr-task/posts/guards";
+
 import { PostPageModule } from "./post-page/post-page.module";
 
 import { PostsPageComponent } from "./posts-page.component";
@@ -13,12 +15,17 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: PostPageComponent
+    component: PostPageComponent,
+    canActivate: [PostGuard]
   }
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), PostPageModule],
+  imports: [
+    PostsGuardsModule,
+    RouterModule.forChild(routes),
+    PostPageModule,
+  ],
   exports: [RouterModule]
 })
 export class PostsPageRoutingModule { }

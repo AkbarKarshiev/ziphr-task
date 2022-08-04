@@ -17,5 +17,5 @@ export const selectPostsLoaded = createSelector(selectPostsState, (state: PostsS
 
 export const selectSelectedId = createSelector(selectPostsState, (state: PostsState) => state.selectedId);
 
-export const selectPost = (id: number) => createSelector(selectPostsEntities, (entities) => entities[id] ?? null);
+export const selectPost = (id: string) => createSelector(selectPostsEntities, (entities) => entities[id] ?? null);
 

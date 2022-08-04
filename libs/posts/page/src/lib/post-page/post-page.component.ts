@@ -1,12 +1,34 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable, takeUntil } from "rxjs";
+
+import { PostsFacade } from "@ziphr-task/posts/state";
+import { RootStateFacade } from "@ziphr-task/core/store/root";
+import { Post } from "@ziphr-task/posts/common";
+import { DestroyService } from "@ziphr-task/core/utils/destroy";
+import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 
 @Component({
   selector: 'ziphr-task-post-page',
   templateUrl: './post-page.component.html',
   styleUrls: ['./post-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DestroyService]
 })
-export class PostPageComponent {
-  title = 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit';
-  body = 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto'
+export class PostPageComponent implements OnInit {
+  post$!: Observable<Post | null>;
+
+  constructor(
+    private readonly rootStateFacade: RootStateFacade,
+    private readonly postsFacade: PostsFacade,
+    private readonly destroy$: DestroyService
+  ) {}
+
+  ngOnInit() {
+    this.rootStateFacade.routeParams$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe((params) => {
+      const { id } = params;
+      this.post$ = this.postsFacade.postById$(id).pipe(isNotNullOrUndefined());
+    });
+  }
 }

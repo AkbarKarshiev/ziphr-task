@@ -29,6 +29,7 @@
     "photos-state": "libs/photos/state",
     "posts-api": "libs/posts/api",
     "posts-common": "libs/posts/common",
+    "posts-guards": "libs/posts/guards",
     "posts-page": "libs/posts/page",
     "posts-state": "libs/posts/state",
     "ui-breadcrumb": "libs/ui/breadcrumb",
