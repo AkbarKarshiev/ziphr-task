@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Actions } from "@ngrx/effects";
 import { Store } from '@ngrx/store';
 import { filter, switchMap } from "rxjs";
-import { Actions } from "@ngrx/effects";
 
 import * as AlbumsActions from './albums.actions';
 import * as AlbumsSelectors from './albums.selectors';
@@ -16,9 +16,9 @@ export class AlbumsFacade {
 
   albumsEntities$ = this.store.select(AlbumsSelectors.selectAlbumsEntities);
 
-  album$ = (id: number) => this.store.select(AlbumsSelectors.selectAlbum(id));
+  albumById$ = (id: string) => this.store.select(AlbumsSelectors.selectAlbum(id));
 
-  albumByIdLoaded$ = (id: number) =>
+  albumByIdLoaded$ = (id: string) =>
     this.albums$.pipe(
       filter((albums) => albums?.length > 0),
       switchMap(() => this.store.select(AlbumsSelectors.selectAlbum(id)))

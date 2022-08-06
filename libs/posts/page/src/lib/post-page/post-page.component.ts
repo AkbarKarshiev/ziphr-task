@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable, takeUntil } from "rxjs";
 
-import { PostsFacade } from "@ziphr-task/posts/state";
 import { RootStateFacade } from "@ziphr-task/core/store/root";
-import { Post } from "@ziphr-task/posts/common";
 import { DestroyService } from "@ziphr-task/core/utils/destroy";
 import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
+import { Post } from "@ziphr-task/posts/common";
+import { PostsFacade } from "@ziphr-task/posts/state";
 
 @Component({
   selector: 'ziphr-task-post-page',

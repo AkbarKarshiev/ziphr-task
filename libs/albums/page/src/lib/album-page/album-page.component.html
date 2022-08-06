@@ -1,29 +1,32 @@
 <ziphr-task-breadcrumb></ziphr-task-breadcrumb>
 
-<h2>quidem molestiae enim</h2>
-<div class="mb-3">
-  By
-  <a [routerLink]="paths.user | path : { id: 1 }" class="link-primary text-decoration-none">
-    User 1
-  </a>
-</div>
-
-<div class="row mb-3">
-  <div class="col-md-3 col-xl-2">
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+<ng-container *ngIf="album$ | async as album">
+  <h2>{{ album.title }}</h2>
+  <div class="mb-3">
+    By
+    <a [routerLink]="paths.user | path : { id: album.userId }" class="link-primary text-decoration-none">
+      User {{ album.userId }}
+    </a>
   </div>
-</div>
 
-<ziphr-task-card-photos-list class="mb-3" [viewAlbumLinkEnabled]="false"></ziphr-task-card-photos-list>
+  <div class="row mb-3">
+    <div class="col-md-3 col-xl-2">
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+    </div>
+  </div>
 
-<ngb-pagination
-  class="d-flex justify-content-center"
-  [collectionSize]="5000"
-  [(page)]="page"
-  [maxSize]="3"
-  [pageSize]="5"
-  [rotate]="true"
->
-  <ng-template ngbPaginationPrevious>Prev</ng-template>
-  <ng-template ngbPaginationNext>Next</ng-template>
-</ngb-pagination>
+  <ziphr-task-card-photos-list class="mb-3" [viewAlbumLinkEnabled]="false"></ziphr-task-card-photos-list>
+
+  <ngb-pagination
+    class="d-flex justify-content-center"
+    [collectionSize]="5000"
+    [(page)]="page"
+    [maxSize]="3"
+    [pageSize]="5"
+    [rotate]="true"
+  >
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+  </ngb-pagination>
+</ng-container>
+

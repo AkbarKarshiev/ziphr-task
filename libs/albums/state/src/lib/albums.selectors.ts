@@ -17,4 +17,4 @@ export const selectAlbumsLoaded = createSelector(selectAlbumsState, (state: Albu
 
 export const selectSelectedId = createSelector(selectAlbumsState, (state: AlbumsState) => state.selectedId);
 
-export const selectAlbum = (id: number) => createSelector(selectAlbumsEntities, (entities) => entities[id] ?? null);
+export const selectAlbum = (id: string) => createSelector(selectAlbumsEntities, (entities) => entities[id] ?? null);

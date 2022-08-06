@@ -17,6 +17,7 @@
     "paths": {
       "@ziphr-task/albums/api": ["libs/albums/api/src/index.ts"],
       "@ziphr-task/albums/common": ["libs/albums/common/src/index.ts"],
+      "@ziphr-task/albums/guards": ["libs/albums/guards/src/index.ts"],
       "@ziphr-task/albums/page": ["libs/albums/page/src/index.ts"],
       "@ziphr-task/albums/state": ["libs/albums/state/src/index.ts"],
       "@ziphr-task/albums/ui/albums-list": [

@@ -4,6 +4,7 @@
   "projects": {
     "albums-api": "libs/albums/api",
     "albums-common": "libs/albums/common",
+    "albums-guards": "libs/albums/guards",
     "albums-page": "libs/albums/page",
     "albums-state": "libs/albums/state",
     "albums-ui-albums-list": "libs/albums/ui/albums-list",
