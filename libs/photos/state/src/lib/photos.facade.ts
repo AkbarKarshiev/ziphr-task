@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { filter, switchMap } from "rxjs";
-import { Store } from '@ngrx/store';
 import { Actions } from "@ngrx/effects";
+import { Store } from '@ngrx/store';
+import { filter, switchMap } from "rxjs";
 
 import * as PhotosActions from './photos.actions';
 import * as PhotosSelectors from './photos.selectors';
@@ -16,9 +16,9 @@ export class PhotosFacade {
 
   photosEntities$ = this.store.select(PhotosSelectors.selectPhotosEntities);
 
-  photo$ = (id: number) => this.store.select(PhotosSelectors.selectPhoto(id));
+  photoById$ = (id: string) => this.store.select(PhotosSelectors.selectPhoto(id));
 
-  photoByIdLoaded$ = (id: number) =>
+  photoByIdLoaded$ = (id: string) =>
     this.photos$.pipe(
       filter((photos) => photos?.length > 0),
       switchMap(() => this.store.select(PhotosSelectors.selectPhoto(id)))

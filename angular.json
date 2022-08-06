@@ -26,6 +26,7 @@
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
     "photos-api": "libs/photos/api",
     "photos-common": "libs/photos/common",
+    "photos-guards": "libs/photos/guards",
     "photos-page": "libs/photos/page",
     "photos-state": "libs/photos/state",
     "posts-api": "libs/posts/api",

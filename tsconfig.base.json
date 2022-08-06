@@ -71,6 +71,7 @@
       ],
       "@ziphr-task/photos/api": ["libs/photos/api/src/index.ts"],
       "@ziphr-task/photos/common": ["libs/photos/common/src/index.ts"],
+      "@ziphr-task/photos/guards": ["libs/photos/guards/src/index.ts"],
       "@ziphr-task/photos/page": ["libs/photos/page/src/index.ts"],
       "@ziphr-task/photos/state": ["libs/photos/state/src/index.ts"],
       "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],

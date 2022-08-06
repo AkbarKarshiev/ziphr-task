@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { PHOTOS_FEATURE_KEY, PhotosState, photosAdapter, } from './photos.reducer';
+import { PHOTOS_FEATURE_KEY, photosAdapter,PhotosState } from './photos.reducer';
 
 // Lookup the 'Photos' feature state managed by NgRx
 export const selectPhotosState = createFeatureSelector<PhotosState>(PHOTOS_FEATURE_KEY);
@@ -17,4 +17,4 @@ export const selectPhotosLoaded = createSelector(selectPhotosState, (state: Phot
 
 export const selectSelectedId = createSelector(selectPhotosState, (state: PhotosState) => state.selectedId);
 
-export const selectPhoto = (id: number) => createSelector(selectPhotosEntities, (entities) => entities[id] ?? null);
+export const selectPhoto = (id: string) => createSelector(selectPhotosEntities, (entities) => entities[id] ?? null);

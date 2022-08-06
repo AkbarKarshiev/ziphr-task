@@ -1,15 +1,17 @@
 <ziphr-task-breadcrumb></ziphr-task-breadcrumb>
 
-<h2>
-  accusamus beatae ad facilis cum similique qui sunt
-</h2>
+<ng-container *ngIf="photo$ | async as photo">
+  <h2>
+    {{ photo.title }}
+  </h2>
 
-<div class="mb-3">
-  <a [routerLink]="paths.album | path : { id: 1 }" class="link-primary text-decoration-none d-inline-block">
-    View Album
-  </a>
-</div>
+  <div class="mb-3">
+    <a [routerLink]="paths.album | path : { id: photo.albumId }" class="link-primary text-decoration-none d-inline-block">
+      View Album
+    </a>
+  </div>
 
-<div class="d-flex justify-content-center">
-  <img src="https://via.placeholder.com/600/92c952" alt="photo" class="img-fluid">
-</div>
+  <div class="d-flex justify-content-center">
+    <img [src]="photo.url" alt="photo" class="img-fluid">
+  </div>
+</ng-container>
