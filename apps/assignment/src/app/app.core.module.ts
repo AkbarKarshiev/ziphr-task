@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PostsStateModule,
     AlbumsStateModule,
-    PhotosStateModule
+    PhotosStateModule,
   ],
   providers: [
     {

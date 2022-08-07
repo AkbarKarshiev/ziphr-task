@@ -1,0 +1,56 @@
+<div class="row mb-3 gy-3">
+  <div class="col-md-3 col-xl-2" [formGroup]="searchGroup">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" formControlName="searchTerm" name="searchTerm">
+  </div>
+  <div class="col-md-3 col-xl-2" [formGroup]="filterGroup">
+    <select class="form-select" aria-label="User select" formControlName="userId" name="userId">
+      <option value="">User</option>
+      <option value="{{ user.id }}" *ngFor="let user of users$ | async">User {{ user.id }}</option>
+    </select>
+  </div>
+</div>
+
+<table class="table table-bordered table-responsive mb-3">
+  <thead>
+  <tr>
+    <th scope="col">
+      ID
+      <ziphr-task-sort-icon
+        class="ms-2"
+        column="id"
+        [activeColumn]="sorting.column"
+        [activeDirection]="sorting.direction"
+        (sort)="sort($event)"
+      ></ziphr-task-sort-icon>
+    </th>
+    <th scope="col">User</th>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of items$ | async">
+      <td>
+        {{ post.id }}
+      </td>
+      <td>
+        <a [routerLink]="paths.user | path : { id: post.userId }" class="link-primary text-decoration-none text-truncate d-block">
+          User {{ post.userId }}
+        </a>
+      </td>
+      <td>
+        <a [routerLink]="paths.post | path : { id: post.id }" class="link-primary text-decoration-none text-truncate d-block">
+          {{ post.title }}
+        </a>
+      </td>
+      <td class="text-truncate" style="max-width: 300px; word-wrap: break-word">
+        {{ post.body }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ziphr-task-paginator
+  [paginator]="paginator"
+  (paginate)="paginate($event)"
+></ziphr-task-paginator>

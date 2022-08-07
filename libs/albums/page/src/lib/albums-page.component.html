@@ -3,30 +3,5 @@
 <h2>
   Albums
 </h2>
-<div class="row mb-3 gy-3">
-  <div class="col-md-3 col-xl-2">
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search">
-  </div>
-  <div class="col-md-3 col-xl-2">
-    <select class="form-select" aria-label="User select">
-      <option selected>Author</option>
-      <option value="1">Author 1</option>
-      <option value="2">Author 2</option>
-      <option value="3">Author 3</option>
-    </select>
-  </div>
-</div>
 
-<ziphr-task-albums-list class="mb-3"></ziphr-task-albums-list>
-
-<ngb-pagination
-  class="d-flex justify-content-center"
-  [collectionSize]="5000"
-  [(page)]="page"
-  [maxSize]="3"
-  [pageSize]="5"
-  [rotate]="true"
->
-  <ng-template ngbPaginationPrevious>Prev</ng-template>
-  <ng-template ngbPaginationNext>Next</ng-template>
-</ngb-pagination>
+<ziphr-task-albums-table></ziphr-task-albums-table>

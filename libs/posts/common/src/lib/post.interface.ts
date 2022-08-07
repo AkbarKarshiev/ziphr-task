@@ -2,9 +2,9 @@ export enum PostKeys {
   Posts = 'posts'
 }
 
-export interface Post {
-  userId: number;
+export interface Post extends Record<string, string | number | object>{
   id: number;
+  userId: number;
   title: string;
   body: string;
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NAVIGATION_PATHS } from '@ziphr-task/core/navigation/common';
 import { LayoutComponent } from '@ziphr-task/ui/layout';
+import { UserGuard, UsersGuardsModule } from "@ziphr-task/users/guards";
 
 const routes: Routes = [
   {
@@ -27,20 +28,22 @@ const routes: Routes = [
       },
       {
         path: NAVIGATION_PATHS.user,
+        canActivate: [UserGuard],
         loadChildren: () => import('@ziphr-task/users/page').then((modules) => modules.UserPageModule),
       },
       {
         path: '', redirectTo: NAVIGATION_PATHS.dashboard, pathMatch: 'full'
       },
-      // {
-      //   path: '**'
-      // }
+      {
+        path: '**', redirectTo: NAVIGATION_PATHS.dashboard
+      }
     ]
   }
 ]
 
 @NgModule({
   imports: [
+    UsersGuardsModule,
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
       initialNavigation: 'enabledNonBlocking',

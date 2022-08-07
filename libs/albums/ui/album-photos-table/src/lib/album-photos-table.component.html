@@ -1,0 +1,17 @@
+<div class="row mb-3">
+  <div class="col-md-3 col-xl-2" [formGroup]="searchGroup">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" formControlName="searchTerm" name="searchTerm">
+  </div>
+</div>
+
+<ziphr-task-card-photos-list
+  class="mb-3"
+  [viewAlbumLinkEnabled]="false"
+  *ngIf="items$ | async as photos"
+  [photos]="photos"
+></ziphr-task-card-photos-list>
+
+<ziphr-task-paginator
+  [paginator]="paginator"
+  (paginate)="paginate($event)"
+></ziphr-task-paginator>

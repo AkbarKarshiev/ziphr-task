@@ -1,0 +1,12 @@
+<ngb-pagination
+  class="d-flex justify-content-center"
+  [collectionSize]="paginator.total"
+  [(page)]="paginator.page"
+  [maxSize]="3"
+  [pageSize]="paginator.pageSize"
+  [rotate]="true"
+  (pageChange)="pageChange($event)"
+>
+  <ng-template ngbPaginationPrevious>Prev</ng-template>
+  <ng-template ngbPaginationNext>Next</ng-template>
+</ngb-pagination>

@@ -19,9 +19,16 @@
       "@ziphr-task/albums/common": ["libs/albums/common/src/index.ts"],
       "@ziphr-task/albums/guards": ["libs/albums/guards/src/index.ts"],
       "@ziphr-task/albums/page": ["libs/albums/page/src/index.ts"],
+      "@ziphr-task/albums/services": ["libs/albums/services/src/index.ts"],
       "@ziphr-task/albums/state": ["libs/albums/state/src/index.ts"],
+      "@ziphr-task/albums/ui/album-photos-table": [
+        "libs/albums/ui/album-photos-table/src/index.ts"
+      ],
       "@ziphr-task/albums/ui/albums-list": [
         "libs/albums/ui/albums-list/src/index.ts"
+      ],
+      "@ziphr-task/albums/ui/albums-table": [
+        "libs/albums/ui/albums-table/src/index.ts"
       ],
       "@ziphr-task/core/api/service": ["libs/core/api/service/src/index.ts"],
       "@ziphr-task/core/environments/service": [
@@ -50,11 +57,18 @@
         "libs/core/storage/memory/src/index.ts"
       ],
       "@ziphr-task/core/store/root": ["libs/core/store/root/src/index.ts"],
+      "@ziphr-task/core/table/common": ["libs/core/table/common/src/index.ts"],
+      "@ziphr-task/core/table/service": [
+        "libs/core/table/service/src/index.ts"
+      ],
       "@ziphr-task/core/utils/destroy": [
         "libs/core/utils/destroy/src/index.ts"
       ],
       "@ziphr-task/core/utils/operators": [
         "libs/core/utils/operators/src/index.ts"
+      ],
+      "@ziphr-task/core/utils/table-extensions": [
+        "libs/core/utils/table-extensions/src/index.ts"
       ],
       "@ziphr-task/dashboard/page": ["libs/dashboard/page/src/index.ts"],
       "@ziphr-task/dashboard/ui/banner": [
@@ -73,13 +87,21 @@
       "@ziphr-task/photos/common": ["libs/photos/common/src/index.ts"],
       "@ziphr-task/photos/guards": ["libs/photos/guards/src/index.ts"],
       "@ziphr-task/photos/page": ["libs/photos/page/src/index.ts"],
+      "@ziphr-task/photos/services": ["libs/photos/services/src/index.ts"],
       "@ziphr-task/photos/state": ["libs/photos/state/src/index.ts"],
+      "@ziphr-task/photos/ui/photos-table": [
+        "libs/photos/ui/photos-table/src/index.ts"
+      ],
       "@ziphr-task/photos/users": ["libs/photos/users/src/index.ts"],
       "@ziphr-task/posts/api": ["libs/posts/api/src/index.ts"],
       "@ziphr-task/posts/common": ["libs/posts/common/src/index.ts"],
       "@ziphr-task/posts/guards": ["libs/posts/guards/src/index.ts"],
       "@ziphr-task/posts/page": ["libs/posts/page/src/index.ts"],
+      "@ziphr-task/posts/services": ["libs/posts/services/src/index.ts"],
       "@ziphr-task/posts/state": ["libs/posts/state/src/index.ts"],
+      "@ziphr-task/posts/ui/posts-table": [
+        "libs/posts/ui/posts-table/src/index.ts"
+      ],
       "@ziphr-task/ui/albums-vertical-list": [
         "libs/ui/albums-vertical-list/src/index.ts"
       ],
@@ -89,10 +111,12 @@
         "libs/ui/card-photos-list/src/index.ts"
       ],
       "@ziphr-task/ui/layout": ["libs/ui/layout/src/index.ts"],
+      "@ziphr-task/ui/paginator": ["libs/ui/paginator/src/index.ts"],
       "@ziphr-task/ui/pipes/nl2br": ["libs/ui/pipes/nl2br/src/index.ts"],
       "@ziphr-task/ui/posts-vertical-list": [
         "libs/ui/posts-vertical-list/src/index.ts"
       ],
+      "@ziphr-task/ui/sort-icon": ["libs/ui/sort-icon/src/index.ts"],
       "@ziphr-task/ui/vertical-albums-list": [
         "libs/ui/vertical-albums-list/src/index.ts"
       ],
@@ -105,6 +129,9 @@
       "@ziphr-task/ui/vertical-posts-list": [
         "libs/ui/vertical-posts-list/src/index.ts"
       ],
+      "@ziphr-task/users/api": ["libs/users/api/src/index.ts"],
+      "@ziphr-task/users/common": ["libs/users/common/src/index.ts"],
+      "@ziphr-task/users/guards": ["libs/users/guards/src/index.ts"],
       "@ziphr-task/users/page": ["libs/users/page/src/index.ts"],
       "@ziphr-task/users/ui/banner": ["libs/users/ui/banner/src/index.ts"]
     }

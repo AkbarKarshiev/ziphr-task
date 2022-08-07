@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
 import { Post } from "@ziphr-task/posts/common";
 
 @Component({

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 
+import { Album, AlbumsResponse } from "@ziphr-task/albums/common";
 import { ApiService } from "@ziphr-task/core/api/service";
 import { EnvironmentService } from "@ziphr-task/core/environments/service";
-import { Album, AlbumsResponse } from "@ziphr-task/albums/common";
 
 @Injectable()
 export class AlbumsApiService {

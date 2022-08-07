@@ -18,8 +18,6 @@ import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 export class AlbumPageComponent implements OnInit {
   album$!: Observable<Album>;
 
-  page = 1;
-
   constructor(
     private readonly rootStateFacade: RootStateFacade,
     private readonly albumsFacade: AlbumsFacade,

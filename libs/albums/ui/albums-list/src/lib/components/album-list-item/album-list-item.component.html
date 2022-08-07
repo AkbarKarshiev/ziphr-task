@@ -1,29 +1,20 @@
 <ziphr-task-card>
   <ziphr-task-card-header>
-    <a [routerLink]="paths.album | path : { id: 1 }" class="link-primary text-decoration-none d-block text-truncate">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    <a [routerLink]="paths.album | path : { id: album.id }" class="link-primary text-decoration-none d-block text-truncate">
+      {{ album.title }}
     </a>
   </ziphr-task-card-header>
   <ziphr-task-card-body>
     <div class="row">
-      <div class="col-3">
-        <img src="https://via.placeholder.com/150/92c952" alt="photo-alt" class="img-fluid">
-      </div>
-      <div class="col-3">
-        <img src="https://via.placeholder.com/150/771796" alt="photo-alt" class="img-fluid">
-      </div>
-      <div class="col-3">
-        <img src="https://via.placeholder.com/150/92c952" alt="photo-alt" class="img-fluid">
-      </div>
-      <div class="col-3">
-        <img src="https://via.placeholder.com/150/771796" alt="photo-alt" class="img-fluid">
+      <div class="col-3" *ngFor="let photo of photos$ | async">
+        <img [src]="photo.thumbnailUrl" alt="photo-alt" class="img-fluid">
       </div>
     </div>
   </ziphr-task-card-body>
   <ziphr-task-card-footer>
     By
-    <a [routerLink]="paths.user | path : { id: 1 }" class="link-primary text-decoration-none text-truncate">
-      User 1
+    <a [routerLink]="paths.user | path : { id: album.userId }" class="link-primary text-decoration-none text-truncate">
+      User {{ album.userId }}
     </a>
   </ziphr-task-card-footer>
 </ziphr-task-card>

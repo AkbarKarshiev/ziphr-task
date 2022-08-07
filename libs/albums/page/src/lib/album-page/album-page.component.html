@@ -9,24 +9,6 @@
     </a>
   </div>
 
-  <div class="row mb-3">
-    <div class="col-md-3 col-xl-2">
-      <input type="text" class="form-control" placeholder="Search" aria-label="Search">
-    </div>
-  </div>
-
-  <ziphr-task-card-photos-list class="mb-3" [viewAlbumLinkEnabled]="false"></ziphr-task-card-photos-list>
-
-  <ngb-pagination
-    class="d-flex justify-content-center"
-    [collectionSize]="5000"
-    [(page)]="page"
-    [maxSize]="3"
-    [pageSize]="5"
-    [rotate]="true"
-  >
-    <ng-template ngbPaginationPrevious>Prev</ng-template>
-    <ng-template ngbPaginationNext>Next</ng-template>
-  </ngb-pagination>
+  <ziphr-task-album-photos-table></ziphr-task-album-photos-table>
 </ng-container>
 

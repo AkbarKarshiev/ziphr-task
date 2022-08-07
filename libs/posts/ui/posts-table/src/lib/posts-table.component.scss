@@ -1,0 +1,11 @@
+@use 'libs/ui/stylesheets/overrides/variables' as vars;
+
+.table {
+  th:first-child {
+    cursor: pointer;
+  }
+}
+
+th.sortable-active {
+  color: vars.$primary;
+}

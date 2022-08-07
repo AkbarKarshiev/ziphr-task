@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
+import { Album } from "@ziphr-task/albums/common";
 
 @Component({
   selector: 'ziphr-task-albums-list',
@@ -6,12 +8,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./albums-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AlbumsListComponent implements OnInit {
-  dumbArr: number[] = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-  ]
-
-  constructor() {}
-
-  ngOnInit(): void {}
+export class AlbumsListComponent {
+  @Input() albums!: Album[];
 }

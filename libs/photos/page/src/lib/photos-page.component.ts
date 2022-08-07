@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'ziphr-task-photos-page',
@@ -6,10 +6,4 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./photos-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotosPageComponent implements OnInit {
-  page = 1;
-
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class PhotosPageComponent {}

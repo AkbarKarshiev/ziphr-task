@@ -5,7 +5,10 @@
         Albums
       </ziphr-task-card-header>
       <ziphr-task-card-body>
-        <ziphr-task-vertical-albums-list></ziphr-task-vertical-albums-list>
+        <ziphr-task-vertical-albums-list
+          *ngIf="albums$ | async as albums"
+          [albums]="albums"
+        ></ziphr-task-vertical-albums-list>
       </ziphr-task-card-body>
     </ziphr-task-card>
   </div>
@@ -15,7 +18,10 @@
         Posts
       </ziphr-task-card-header>
       <ziphr-task-card-body>
-        <ziphr-task-vertical-posts-list></ziphr-task-vertical-posts-list>
+        <ziphr-task-vertical-posts-list
+          *ngIf="posts$ | async as posts"
+          [posts]="posts"
+        ></ziphr-task-vertical-posts-list>
       </ziphr-task-card-body>
     </ziphr-task-card>
   </div>

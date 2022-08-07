@@ -1,10 +1,10 @@
-<img src="https://via.placeholder.com/600/92c952" alt="photo-img" class="img-fluid"/>
+<img [src]="photo.url" alt="photo-img" class="img-fluid"/>
 <div class="card-photo-list-item__body">
-  <a [routerLink]="paths.photo | path : { id: 1 }" class="link-primary text-decoration-none text-truncate d-block">
-    accusamus beatae ad facilis cum similique qui sunt
+  <a [routerLink]="paths.photo | path : { id: photo.id }" class="link-primary text-decoration-none text-truncate d-block">
+    {{ photo.title }}
   </a>
   <div *ngIf="viewAlbumLinkEnabled">
-    <a [routerLink]="paths.album | path : { id: 1 }" class="link-primary text-decoration-none">
+    <a [routerLink]="paths.album | path : { id: photo.albumId }" class="link-primary text-decoration-none">
       View Album
     </a>
   </div>

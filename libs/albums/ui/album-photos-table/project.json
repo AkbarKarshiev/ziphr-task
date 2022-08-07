@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/albums/ui/album-photos-table/src",
+  "prefix": "ziphr-task",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/albums/ui/album-photos-table"],
+      "options": {
+        "jestConfig": "libs/albums/ui/album-photos-table/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/albums/ui/album-photos-table/**/*.ts",
+          "libs/albums/ui/album-photos-table/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

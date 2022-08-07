@@ -2,7 +2,7 @@ export enum AlbumKeys {
   Albums = 'albums'
 }
 
-export interface Album {
+export interface Album extends Record<string, string | number | object>{
   userId: number;
   id: number;
   title: string;

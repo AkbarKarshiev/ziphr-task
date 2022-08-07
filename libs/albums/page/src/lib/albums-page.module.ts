@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 
+import { AlbumsServicesModule } from "@ziphr-task/albums/services";
 import { AlbumsListModule } from "@ziphr-task/albums/ui/albums-list";
+import { AlbumsTableModule } from "@ziphr-task/albums/ui/albums-table";
 import { BreadcrumbModule } from "@ziphr-task/ui/breadcrumb";
 
 import { AlbumsPageComponent } from './albums-page.component';
@@ -10,11 +10,11 @@ import { AlbumsPageRoutingModule } from "./albums-page-routing.module";
 
 @NgModule({
   imports: [
-    CommonModule,
     AlbumsPageRoutingModule,
-    NgbPaginationModule,
     AlbumsListModule,
     BreadcrumbModule,
+    AlbumsTableModule,
+    AlbumsServicesModule
   ],
   declarations: [AlbumsPageComponent],
 })

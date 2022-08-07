@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 
-import { UserBannerModule, UserBannerComponent } from "@ziphr-task/users/ui/banner";
+import { UserBannerComponent, UserBannerModule } from "@ziphr-task/users/ui/banner";
 
 import { UserPageComponent } from "./user-page.component";
 

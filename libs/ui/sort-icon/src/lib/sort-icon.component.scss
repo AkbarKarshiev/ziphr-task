@@ -1,0 +1,27 @@
+@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+
+:host {
+  display: inline-block;
+}
+
+.sort-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  svg {
+    margin-top: -2px;
+    transition: rotate .15s ease-in-out;
+  }
+
+  &.asc {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.active {
+    path {
+      stroke: bs5.$primary;
+    }
+  }
+}

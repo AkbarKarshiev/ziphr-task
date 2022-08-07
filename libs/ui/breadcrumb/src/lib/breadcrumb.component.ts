@@ -26,6 +26,13 @@ export class BreadcrumbComponent implements OnInit {
       map((state: RouterReducerStateExtended) => {
         const urlArr = state.url.split('/');
         urlArr.shift();
+
+        if (Object.keys(state.queryParams).length) {
+          const temp = urlArr[urlArr.length - 1].split('?');
+          temp.pop();
+          urlArr[urlArr.length - 1] = temp[0];
+        }
+
         return urlArr;
       })
     )

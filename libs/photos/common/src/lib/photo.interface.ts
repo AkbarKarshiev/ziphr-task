@@ -2,7 +2,7 @@ export enum PhotoKeys {
   Photos = 'photos'
 }
 
-export interface Photo {
+export interface Photo extends Record<string, string | number | object> {
   albumId: number;
   id: number;
   title: string;

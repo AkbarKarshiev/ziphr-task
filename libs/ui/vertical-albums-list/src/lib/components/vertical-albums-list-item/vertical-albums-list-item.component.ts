@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 
+import { Album } from "@ziphr-task/albums/common";
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 
 @Component({
@@ -9,5 +10,7 @@ import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VerticalAlbumsListItemComponent {
+  @Input() album!: Album;
+
   constructor(@Inject(PATHS) public readonly paths: NavigationPaths) {}
 }

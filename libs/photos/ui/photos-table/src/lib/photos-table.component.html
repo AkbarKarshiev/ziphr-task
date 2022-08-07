@@ -1,0 +1,22 @@
+<div class="row mb-3 gy-3">
+  <div class="col-md-3 col-xl-2" [formGroup]="searchGroup">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" formControlName="searchTerm" name="searchTerm">
+  </div>
+  <div class="col-md-3 col-xl-2" [formGroup]="filterGroup">
+    <select class="form-select" aria-label="User select" formControlName="albumId" name="albumId">
+      <option value="">Album</option>
+      <option value="{{ album.id }}" *ngFor="let album of albums$ | async">Album {{ album.id }}</option>
+    </select>
+  </div>
+</div>
+
+<ziphr-task-card-photos-list
+  class="mb-3"
+  *ngIf="items$ | async as photos"
+  [photos]="photos"
+></ziphr-task-card-photos-list>
+
+<ziphr-task-paginator
+  [paginator]="paginator"
+  (paginate)="paginate($event)"
+></ziphr-task-paginator>
