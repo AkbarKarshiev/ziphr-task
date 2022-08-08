@@ -1,71 +1,45 @@
-
-
 # ZiphrTask
 
-This project was generated using [Nx](https://nx.dev).
+A simple dashboard built with Angular 14, Nx workspace, ngrx, Bootstrap 5 and ng-bootstrap.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Working application
 
-🔎 **Smart, Fast and Extensible Build System**
+Check out the **live application** -> https://www.google.com/
 
-## Quick Start & Documentation
+## Tech stack
 
-[Nx Documentation](https://nx.dev/angular)
+![Tech logos][stack]
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+- [Angular 14][angular]
+- [Nx Workspace][nx]
+- [ngrx][ngrx] and
+- [ng-bootstrap][ng-bootstrap] UI component: `offcanvas`, `pagination`, `breadcrumb`, `select` and more.
+- [Bootsrap 5][bootsrap] - For basic components styles and utilities
+- [Netlify][netlify] for deployment
+- [Yarn][yarn] package manager is used
 
-[Interactive Tutorial](https://nx.dev/react-tutorial/01-create-application)
+[angular]: https://angular.io/
+[ngrx]: https://ngrx.io/
+[bootsrap]: https://getbootstrap.com/
+[ng-bootstrap]: https://ng-bootstrap.github.io/
+[netlify]: http://netlify.com/
+[yarn]: https://yarnpkg.com/
 
-## Adding capabilities to your workspace
+## High-level design
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+All components are following:
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@ziphr-task/mylib`.
+- OnPush Change Detection and async pipes: all components use observable and async pipe for rendering data without any single manual subscribe. Only some places are calling subscribe for reacting to route params and form value changes.
+- SCAMs (single component Angular modules) for tree-shakable components, meaning each component will have a respective module. For example, a LogoComponent will have a corresponding LogoModule.
+- Mostly, everything stay in the `libs` folder. Modules, Configurations, Components etc... are in libs. libs should be separated into different directories based on features. We won't put them inside the apps folder. For example in an Angular, contains the `main.ts`, `app.component.ts` and `app.module.ts`
 
 ## Development server
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
+Run `yarn run start` for a dev server. Navigate to http://localhost:4545/. The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `yarn run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
@@ -73,33 +47,7 @@ Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
 Run `nx affected:test` to execute the unit tests affected by a change.
 
-## Running end-to-end tests
+## Dependency Graph
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+Run `nx graph` to see a diagram of the dependencies of projects.
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
