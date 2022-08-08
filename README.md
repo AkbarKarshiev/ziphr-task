@@ -20,6 +20,7 @@ Check out the **live application** -> https://json-placeholder-dashboard.netlify
 
 [angular]: https://angular.io/
 [ngrx]: https://ngrx.io/
+[nx]: https://nx.dev/
 [bootsrap]: https://getbootstrap.com/
 [ng-bootstrap]: https://ng-bootstrap.github.io/
 [netlify]: http://netlify.com/
