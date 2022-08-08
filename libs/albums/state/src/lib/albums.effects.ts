@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType, OnInitEffects, concatLatestFrom } from '@ngrx/effects';
-import { map, take } from "rxjs";
-import { fetch } from '@nrwl/angular';
+import { Actions, concatLatestFrom,createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from "@ngrx/store";
+import { fetch } from '@nrwl/angular';
+import { map, take } from "rxjs";
 
-import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
 import { AlbumsApiService } from "@ziphr-task/albums/api";
 import { Album, AlbumKeys } from "@ziphr-task/albums/common";
+import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
 
 import * as AlbumsActions from './albums.actions';
 
 @Injectable()
 export class AlbumsEffects implements OnInitEffects {
   init$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(AlbumsActions.init),
       concatLatestFrom(() => this.localAsyncStorage.getItem<Album[] | null>(AlbumKeys.Albums).pipe(take(1))),
       fetch({
@@ -23,11 +23,11 @@ export class AlbumsEffects implements OnInitEffects {
         },
         onError: (action, error) => console.error(`Error: ${action.type}`, error)
       })
-    )
+    ) }
   );
 
   load$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(AlbumsActions.load),
       fetch({
         id: () => 'load-posts',
@@ -44,7 +44,7 @@ export class AlbumsEffects implements OnInitEffects {
           return AlbumsActions.loadFailure({ error })
         }
       })
-    )
+    ) }
   )
 
   constructor(

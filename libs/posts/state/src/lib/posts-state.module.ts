@@ -1,13 +1,12 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { PostsApiModule } from "@ziphr-task/posts/api";
 
-import * as fromPosts from './posts.reducer';
-
 import { PostsEffects } from './posts.effects';
 import { PostsFacade } from './posts.facade';
+import * as fromPosts from './posts.reducer';
 
 export function metaServiceFactory(postsFacade: PostsFacade): () => void {
   return (): void => postsFacade.load();
