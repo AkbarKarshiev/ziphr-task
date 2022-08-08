@@ -4,7 +4,7 @@ A simple dashboard built with Angular 14, Nx workspace, ngrx, Bootstrap 5 and ng
 
 ## Working application
 
-Check out the **live application** -> https://www.google.com/
+Check out the **live application** -> https://json-placeholder-dashboard.netlify.app/
 
 ## Tech stack
 
