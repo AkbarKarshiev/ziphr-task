@@ -1,7 +1,7 @@
-@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+@use 'libs/ui/stylesheets/overrides/variables' as vars;
 
 :host {
   display: block;
-  background-color: bs5.$card-header-footer-bg;
-  padding: bs5.$nav-link-padding-y bs5.$nav-link-padding-x;
+  background-color: vars.$card-header-footer-bg;
+  padding: vars.$nav-link-padding-y vars.$nav-link-padding-x;
 }
