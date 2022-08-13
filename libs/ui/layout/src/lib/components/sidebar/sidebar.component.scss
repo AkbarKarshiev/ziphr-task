@@ -1,8 +1,8 @@
-@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+@use 'libs/ui/stylesheets/overrides/variables' as vars;
 
 :host {
   display: block;
-  background-color: bs5.$gray-100;
+  background-color: vars.$gray-100;
   padding: 10px;
   width: 300px;
 }

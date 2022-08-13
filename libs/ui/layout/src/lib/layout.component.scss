@@ -1,4 +1,6 @@
-@use 'libs/ui/stylesheets/bs5/bootstrap' as bs5;
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 :host {
   display: flex;
@@ -6,7 +8,7 @@
   flex-direction: column;
   width: 100%;
 
-  @include bs5.media-breakpoint-up(xl) {
+  @include media-breakpoint-up(xl) {
     flex-direction: row;
   }
 }

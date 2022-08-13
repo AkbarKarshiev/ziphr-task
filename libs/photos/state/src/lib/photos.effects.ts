@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType, OnInitEffects, concatLatestFrom } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
+import { Actions, concatLatestFrom,createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from "@ngrx/store";
+import { fetch } from '@nrwl/angular';
 import { map, take } from "rxjs";
 
 import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
@@ -13,7 +13,7 @@ import * as PhotosActions from './photos.actions';
 @Injectable()
 export class PhotosEffects implements OnInitEffects {
   init$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(PhotosActions.init),
       concatLatestFrom(() => this.localAsyncStorage.getItem<Photo[] | null>(PhotoKeys.Photos).pipe(take(1))),
       fetch({
@@ -23,11 +23,11 @@ export class PhotosEffects implements OnInitEffects {
         },
         onError: (action, error) => console.error(`Error: ${action.type}`, error)
       })
-    )
+    ) }
   );
 
   load$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(PhotosActions.load),
       fetch({
         id: () => 'load-photos',
@@ -44,7 +44,7 @@ export class PhotosEffects implements OnInitEffects {
           return PhotosActions.loadFailure({ error })
         }
       })
-    )
+    ) }
   );
 
   constructor(

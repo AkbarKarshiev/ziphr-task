@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType, concatLatestFrom, OnInitEffects } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from "@ngrx/store";
 import { fetch } from '@nrwl/angular';
 import { map, take } from "rxjs";
 
-import { PostsApiService } from "@ziphr-task/posts/api";
 import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
+import { PostsApiService } from "@ziphr-task/posts/api";
 import { Post, PostKeys } from "@ziphr-task/posts/common";
 
 import * as PostsActions from './posts.actions';
@@ -13,7 +13,7 @@ import * as PostsActions from './posts.actions';
 @Injectable()
 export class PostsEffects implements OnInitEffects {
   init$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(PostsActions.init),
       concatLatestFrom(() => this.localAsyncStorage.getItem<Post[] | null>(PostKeys.Posts).pipe(take(1))),
       fetch({
@@ -23,11 +23,11 @@ export class PostsEffects implements OnInitEffects {
         },
         onError: (action, error) => console.error(`Error: ${action.type}`, error)
       })
-    )
+    ) }
   );
 
   load$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(PostsActions.load),
       fetch({
         id: () => 'load-posts',
@@ -44,7 +44,7 @@ export class PostsEffects implements OnInitEffects {
           return PostsActions.loadFailure({ error })
         }
       })
-    )
+    ) }
   )
 
   constructor(

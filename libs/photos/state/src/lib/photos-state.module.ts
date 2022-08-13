@@ -1,12 +1,12 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { PhotosApiModule } from "@ziphr-task/photos/api";
 
-import * as fromPhotos from './photos.reducer';
 import { PhotosEffects } from './photos.effects';
 import { PhotosFacade } from './photos.facade';
+import * as fromPhotos from './photos.reducer';
 
 export function metaServiceFactory(photosFacade: PhotosFacade): () => void {
   return (): void => photosFacade.load();
