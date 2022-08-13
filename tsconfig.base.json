@@ -61,6 +61,7 @@
       "@ziphr-task/core/table/service": [
         "libs/core/table/service/src/index.ts"
       ],
+      "@ziphr-task/core/testing": ["libs/core/testing/src/index.ts"],
       "@ziphr-task/core/utils/destroy": [
         "libs/core/utils/destroy/src/index.ts"
       ],

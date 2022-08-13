@@ -25,6 +25,7 @@
     "core-store-root": "libs/core/store/root",
     "core-table-common": "libs/core/table/common",
     "core-table-service": "libs/core/table/service",
+    "core-testing": "libs/core/testing",
     "core-utils-destroy": "libs/core/utils/destroy",
     "core-utils-operators": "libs/core/utils/operators",
     "core-utils-table-extensions": "libs/core/utils/table-extensions",
