@@ -1,9 +1,11 @@
-import { NavigationPathPipe } from './navigation-path.pipe';
-import { TestBed, waitForAsync } from "@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { TestBed, waitForAsync } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+
 import { NAVIGATION_PATHS, PATHS_STUB } from "@ziphr-task/core/navigation/common";
 import { NavigationService } from "@ziphr-task/core/navigation/service";
+
+import { NavigationPathPipe } from './navigation-path.pipe';
 
 describe('NavigationPathPipe', () => {
   let pipe: NavigationPathPipe;
