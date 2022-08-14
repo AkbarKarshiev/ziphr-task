@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
+import { ENVIRONMENTS_DEFAULT } from "@ziphr-task/core/environments/service";
+
 import { EnvironmentService } from './environment.service';
 
 describe('EnvironmentService', () => {
@@ -12,5 +14,9 @@ describe('EnvironmentService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should return environments', () => {
+    expect(service.environments).toEqual({ ...ENVIRONMENTS_DEFAULT })
   });
 });

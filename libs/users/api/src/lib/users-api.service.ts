@@ -3,7 +3,7 @@ import { catchError, Observable, of } from "rxjs";
 
 import { ApiService } from "@ziphr-task/core/api/service";
 import { EnvironmentService } from "@ziphr-task/core/environments/service";
-import { User, UsersResponse } from "@ziphr-task/users/common";
+import { UserResponse, UsersResponse } from "@ziphr-task/users/common";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class UsersApiService {
     return this.apiService.get<UsersResponse>(this.getUsersApiRoute());
   }
 
-  loadOneUser(id: string): Observable<Partial<User>> {
-    return this.apiService.get<User>(this.getUserApiRoute(id)).pipe(
+  loadOneUser(id: string): Observable<Partial<UserResponse>> {
+    return this.apiService.get<UserResponse>(this.getUserApiRoute(id)).pipe(
       catchError(() => {
         return of({});
       })

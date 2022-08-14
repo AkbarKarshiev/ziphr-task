@@ -1,16 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LocalAsyncStorageService } from './local-async-storage.service';
+import { LocalSyncStorageService, LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
 
 describe('LocalAsyncStorageService', () => {
   let service: LocalAsyncStorageService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      providers: [LocalAsyncStorageService, LocalSyncStorageService],
+    }).compileComponents();
+
     service = TestBed.inject(LocalAsyncStorageService);
   });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(service).toBeTruthy();
   });
 });

@@ -27,3 +27,5 @@ export interface User {
 }
 
 export type UsersResponse = User[];
+
+export type UserResponse = User;

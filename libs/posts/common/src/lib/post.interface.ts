@@ -11,3 +11,5 @@ export interface Post extends Record<string, string | number | object>{
 
 export type PostsResponse = Post[];
 
+export type PostResponse = Post;
+

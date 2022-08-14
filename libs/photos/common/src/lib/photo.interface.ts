@@ -12,3 +12,4 @@ export interface Photo extends Record<string, string | number | object> {
 
 export type PhotosResponse = Photo[];
 
+export type PhotoResponse = Photo;

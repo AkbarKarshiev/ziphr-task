@@ -10,3 +10,4 @@ export interface Album extends Record<string, string | number | object>{
 
 export type AlbumsResponse = Album[];
 
+export type AlbumResponse = Album;

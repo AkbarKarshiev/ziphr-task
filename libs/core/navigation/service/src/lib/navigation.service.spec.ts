@@ -1,16 +1,25 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from "@angular/router/testing";
+
+import { NAVIGATION_PATHS, PATHS_STUB } from "@ziphr-task/core/navigation/common";
 
 import { NavigationService } from './navigation.service';
 
 describe('NavigationService', () => {
   let service: NavigationService;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      providers: [NavigationService, PATHS_STUB],
+    }).compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({});
     service = TestBed.inject(NavigationService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should return service path', () => {
+    expect(service.getRoute(NAVIGATION_PATHS.dashboard)).toEqual(['/', NAVIGATION_PATHS.dashboard]);
   });
 });
