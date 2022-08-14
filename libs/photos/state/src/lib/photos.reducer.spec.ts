@@ -1,41 +1,47 @@
 import { Action } from '@ngrx/store';
 
+import { Photo, PHOTOS_STUB } from "@ziphr-task/photos/common";
+
 import * as PhotosActions from './photos.actions';
-import { PhotosEntity } from './photos.models';
 import {
-  PhotosState,
   initialPhotosState,
+  photosAdapter,
   photosReducer,
+  PhotosState,
 } from './photos.reducer';
 
 describe('Photos Reducer', () => {
-  const createPhotosEntity = (id: string, name = ''): PhotosEntity => ({
-    id,
-    name: name || `name-${id}`,
+  const getState = (
+    state?: Partial<PhotosState>,
+    photos: Photo[] = []
+  ): PhotosState => photosAdapter.setAll(photos, { ...initialPhotosState, ...state });
+
+  let state: PhotosState;
+
+  beforeEach(() => {
+    state = getState();
   });
 
-  describe('valid Photos actions', () => {
-    it('loadPhotosSuccess should return the list of known Photos', () => {
-      const photos = [
-        createPhotosEntity('PRODUCT-AAA'),
-        createPhotosEntity('PRODUCT-zzz'),
-      ];
-      const action = PhotosActions.loadPhotosSuccess({ photos });
+  it('restore() should restore photos', () => {
+    const action = PhotosActions.restore({ photos: PHOTOS_STUB });
+    const result = photosReducer(state, action);
 
-      const result: PhotosState = photosReducer(initialPhotosState, action);
-
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
-    });
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(PHOTOS_STUB.length);
   });
 
-  describe('unknown action', () => {
-    it('should return the previous state', () => {
-      const action = {} as Action;
+  it('loadSuccess() should add photos', () => {
+    const action = PhotosActions.loadSuccess({ photos: PHOTOS_STUB });
+    const result = photosReducer(state, action);
 
-      const result = photosReducer(initialPhotosState, action);
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(PHOTOS_STUB.length);
+  });
 
-      expect(result).toBe(initialPhotosState);
-    });
+  it('should return the previous state', () => {
+    const action = {} as Action;
+    const result = photosReducer(initialPhotosState, action);
+
+    expect(result).toBe(initialPhotosState);
   });
 });

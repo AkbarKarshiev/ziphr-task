@@ -1,7 +1,7 @@
-<ziphr-task-breadcrumb></ziphr-task-breadcrumb>
+<ziphr-task-breadcrumb automation-id="breadcrumb"></ziphr-task-breadcrumb>
 
 <ng-container *ngIf="photo$ | async as photo">
-  <h2>
+  <h2 automation-id="title">
     {{ photo.title }}
   </h2>
 
@@ -12,6 +12,6 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <img [src]="photo.url" alt="photo" class="img-fluid">
+    <img automation-id="image" [src]="photo.url" alt="photo" class="img-fluid">
   </div>
 </ng-container>

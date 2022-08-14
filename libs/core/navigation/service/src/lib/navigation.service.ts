@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { NavigationExtras, Router, UrlCreationOptions, UrlTree } from "@angular/router";
+
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 
 @Injectable({

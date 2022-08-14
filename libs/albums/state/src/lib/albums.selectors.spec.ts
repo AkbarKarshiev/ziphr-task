@@ -1,66 +1,59 @@
-import { AlbumsEntity } from './albums.models';
+import { Album, ALBUMS_STUB } from "@ziphr-task/albums/common";
+
 import {
+  ALBUMS_FEATURE_KEY,
   albumsAdapter,
   AlbumsPartialState,
-  initialAlbumsState,
-} from './albums.reducer';
+  AlbumsState,
+  initialAlbumsState
+} from "./albums.reducer";
 import * as AlbumsSelectors from './albums.selectors';
 
 describe('Albums Selectors', () => {
-  const ERROR_MSG = 'No Error Available';
-  const getAlbumsId = (it: AlbumsEntity) => it.id;
-  const createAlbumsEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as AlbumsEntity);
+  const getStore = (state?: Partial<AlbumsState>, albums: Album[] = []): AlbumsPartialState => ({
+    [ALBUMS_FEATURE_KEY]: albumsAdapter.setAll(albums, { ...initialAlbumsState, ...state})
+  });
+
+  const SELECTED_ID_STUB = ALBUMS_STUB[0].id;
 
   let state: AlbumsPartialState;
 
   beforeEach(() => {
-    state = {
-      albums: albumsAdapter.setAll(
-        [
-          createAlbumsEntity('PRODUCT-AAA'),
-          createAlbumsEntity('PRODUCT-BBB'),
-          createAlbumsEntity('PRODUCT-CCC'),
-        ],
-        {
-          ...initialAlbumsState,
-          selectedId: 'PRODUCT-BBB',
-          error: ERROR_MSG,
-          loaded: true,
-        }
-      ),
-    };
+    state = getStore();
   });
 
-  describe('Albums Selectors', () => {
-    it('getAllAlbums() should return the list of Albums', () => {
-      const results = AlbumsSelectors.getAllAlbums(state);
-      const selId = getAlbumsId(results[1]);
+  it('selectAlbums() should return albums ', () => {
+    state = getStore({}, ALBUMS_STUB);
+    const results = AlbumsSelectors.selectAlbums(state);
 
-      expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(results.length).toBe(ALBUMS_STUB.length);
+  });
 
-    it('getSelected() should return the selected Entity', () => {
-      const result = AlbumsSelectors.getSelected(state) as AlbumsEntity;
-      const selId = getAlbumsId(result);
+  it('selectAlbumsCount() should return count', () => {
+    state = getStore({}, ALBUMS_STUB);
+    const result = AlbumsSelectors.selectAlbumsCount(state);
 
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(result).toBe(ALBUMS_STUB.length);
+  });
 
-    it('getAlbumsLoaded() should return the current "loaded" status', () => {
-      const result = AlbumsSelectors.getAlbumsLoaded(state);
+  it('selectAlbumsEntities() should return albums entities', () => {
+    state = getStore({}, ALBUMS_STUB);
+    const result = AlbumsSelectors.selectAlbumsEntities(state);
 
-      expect(result).toBe(true);
-    });
+    expect(Object.keys(result).length).toBe(ALBUMS_STUB.length);
+  });
 
-    it('getAlbumsError() should return the current "error" state', () => {
-      const result = AlbumsSelectors.getAlbumsError(state);
+  it('selectAlbumsLoaded() should return current "loaded" status', () => {
+    state = getStore({ loaded: true });
+    const result = AlbumsSelectors.selectAlbumsLoaded(state);
 
-      expect(result).toBe(ERROR_MSG);
-    });
+    expect(result).toBeTruthy();
+  });
+
+  it('selectAlbum() should return album by id', () => {
+    state = getStore({}, ALBUMS_STUB);
+    const result = AlbumsSelectors.selectAlbum(SELECTED_ID_STUB + '')(state);
+
+    expect(result?.id).toBe(SELECTED_ID_STUB);
   });
 });

@@ -29,6 +29,7 @@
     "core-utils-destroy": "libs/core/utils/destroy",
     "core-utils-operators": "libs/core/utils/operators",
     "core-utils-table-extensions": "libs/core/utils/table-extensions",
+    "core-utils-types": "libs/core/utils/types",
     "dashboard-page": "libs/dashboard/page",
     "dashboard-ui-banner": "libs/dashboard/ui/banner",
     "photos-api": "libs/photos/api",

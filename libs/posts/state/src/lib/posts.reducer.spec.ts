@@ -1,37 +1,42 @@
 import { Action } from '@ngrx/store';
 
+import { Post, POSTS_STUB } from "@ziphr-task/posts/common";
+
 import * as PostsActions from './posts.actions';
-import { PostsEntity } from './posts.models';
-import { PostsState, initialPostsState, postsReducer } from './posts.reducer';
+import { initialPostsState, postsAdapter,postsReducer, PostsState } from './posts.reducer';
 
 describe('Posts Reducer', () => {
-  const createPostsEntity = (id: string, name = ''): PostsEntity => ({
-    id,
-    name: name || `name-${id}`,
+  const getState = (
+    state?: Partial<PostsState>,
+    posts: Post[] = []
+  ): PostsState => postsAdapter.setAll(posts, { ...initialPostsState, ...state });
+
+  let state: PostsState;
+
+  beforeEach(() => {
+    state = getState();
   });
 
-  describe('valid Posts actions', () => {
-    it('loadPostsSuccess should return the list of known Posts', () => {
-      const posts = [
-        createPostsEntity('PRODUCT-AAA'),
-        createPostsEntity('PRODUCT-zzz'),
-      ];
-      const action = PostsActions.loadPostsSuccess({ posts });
+  it('restore() should restore posts', () => {
+    const action = PostsActions.restore({ posts: POSTS_STUB });
+    const result = postsReducer(state, action);
 
-      const result: PostsState = postsReducer(initialPostsState, action);
-
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
-    });
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(POSTS_STUB.length);
   });
 
-  describe('unknown action', () => {
-    it('should return the previous state', () => {
-      const action = {} as Action;
+  it('loadSuccess() should add posts', () => {
+    const action = PostsActions.loadSuccess({ posts: POSTS_STUB });
+    const result = postsReducer(state, action);
 
-      const result = postsReducer(initialPostsState, action);
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(POSTS_STUB.length);
+  });
 
-      expect(result).toBe(initialPostsState);
-    });
+  it('should return the previous state', () => {
+    const action = {} as Action;
+    const result = postsReducer(initialPostsState, action);
+
+    expect(result).toBe(initialPostsState);
   });
 });

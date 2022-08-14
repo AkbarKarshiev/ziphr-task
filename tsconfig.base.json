@@ -71,6 +71,7 @@
       "@ziphr-task/core/utils/table-extensions": [
         "libs/core/utils/table-extensions/src/index.ts"
       ],
+      "@ziphr-task/core/utils/types": ["libs/core/utils/types/src/index.ts"],
       "@ziphr-task/dashboard/page": ["libs/dashboard/page/src/index.ts"],
       "@ziphr-task/dashboard/ui/banner": [
         "libs/dashboard/ui/banner/src/index.ts"

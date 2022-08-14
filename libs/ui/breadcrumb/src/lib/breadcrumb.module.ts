@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 
-import { BreadcrumbComponent } from './breadcrumb.component';
 import { NavigationPipesModule } from "@ziphr-task/core/navigation/ui/pipes";
+
+import { BreadcrumbComponent } from './breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -12,8 +13,6 @@ import { NavigationPipesModule } from "@ziphr-task/core/navigation/ui/pipes";
     NavigationPipesModule
   ],
   declarations: [BreadcrumbComponent],
-  exports: [
-    BreadcrumbComponent
-  ]
+  exports: [BreadcrumbComponent]
 })
 export class BreadcrumbModule {}

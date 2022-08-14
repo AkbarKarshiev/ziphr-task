@@ -5,7 +5,6 @@ import {
   ALBUM_STUB,
   AlbumResponse,
   ALBUMS_RESPONSE_STUB,
-  ALBUMS_STUB,
   AlbumsResponse
 } from "@ziphr-task/albums/common";
 import { ApiService } from "@ziphr-task/core/api/service";

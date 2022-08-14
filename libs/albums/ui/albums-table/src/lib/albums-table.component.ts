@@ -24,7 +24,6 @@ export class AlbumsTableComponent implements OnInit, TFilterView, TPaginatorView
   users$!: Observable<User[]>;
 
   paginator!: PaginatorState;
-  sorting!: SortState;
   filterGroup!: FormGroup;
   searchGroup!: FormGroup;
 
@@ -33,14 +32,15 @@ export class AlbumsTableComponent implements OnInit, TFilterView, TPaginatorView
     private readonly destroy$: DestroyService,
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
+    private readonly albumsService: AlbumsService,
     private readonly rootStateFacade: RootStateFacade,
     private readonly usersService: UsersApiService,
-    private readonly albumsService: AlbumsService,
   ) {}
 
   ngOnInit(): void {
     this.filterForm();
     this.searchForm();
+    this.albumsService.setDefaults();
     this.tableState$ = this.albumsService.tableState$;
     this.paginator = this.albumsService.paginator;
     this.paginator.pageSize = pageSizes[1];

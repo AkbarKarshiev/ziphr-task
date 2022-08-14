@@ -1,100 +1,61 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-import { NxModule } from '@nrwl/angular';
-import { readFirst } from '@nrwl/angular/testing';
+import { StoreModule } from '@ngrx/store';
+import { of } from "rxjs";
+import { anything, mock, when } from "ts-mockito";
 
-import * as AlbumsActions from './albums.actions';
+import { AlbumsApiService } from "@ziphr-task/albums/api";
+import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
+import { providerOf } from "@ziphr-task/core/testing";
+
 import { AlbumsEffects } from './albums.effects';
 import { AlbumsFacade } from './albums.facade';
-import { AlbumsEntity } from './albums.models';
-import {
-  ALBUMS_FEATURE_KEY,
-  AlbumsState,
-  initialAlbumsState,
-  albumsReducer,
-} from './albums.reducer';
-import * as AlbumsSelectors from './albums.selectors';
+import { ALBUMS_FEATURE_KEY, albumsReducer } from './albums.reducer';
 
-interface TestSchema {
-  albums: AlbumsState;
-}
 
 describe('AlbumsFacade', () => {
   let facade: AlbumsFacade;
-  let store: Store<TestSchema>;
-  const createAlbumsEntity = (id: string, name = ''): AlbumsEntity => ({
-    id,
-    name: name || `name-${id}`,
-  });
+  let localAsyncStorageServiceMock: LocalAsyncStorageService;
+  let albumsApiServiceMock: AlbumsApiService;
 
   describe('used in NgModule', () => {
+    beforeEach(() => {
+      localAsyncStorageServiceMock = mock(LocalAsyncStorageService);
+      albumsApiServiceMock = mock(AlbumsApiService);
+    });
+
     beforeEach(() => {
       @NgModule({
         imports: [
           StoreModule.forFeature(ALBUMS_FEATURE_KEY, albumsReducer),
-          EffectsModule.forFeature([AlbumsEffects]),
+          EffectsModule.forFeature([AlbumsEffects])
         ],
-        providers: [AlbumsFacade],
+        providers: [
+          AlbumsFacade,
+          providerOf(LocalAsyncStorageService, localAsyncStorageServiceMock),
+          providerOf(AlbumsApiService, albumsApiServiceMock)
+        ]
       })
       class CustomFeatureModule {}
 
       @NgModule({
         imports: [
-          NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
-          CustomFeatureModule,
-        ],
+          CustomFeatureModule
+        ]
       })
       class RootModule {}
-      TestBed.configureTestingModule({ imports: [RootModule] });
+      TestBed.configureTestingModule({ imports: [RootModule]});
 
-      store = TestBed.inject(Store);
+      when(localAsyncStorageServiceMock.getItem(anything())).thenReturn(of(null));
+
       facade = TestBed.inject(AlbumsFacade);
     });
 
-    /**
-     * The initially generated facade::loadAll() returns empty array
-     */
-    it('loadAll() should return empty list with loaded == true', async () => {
-      let list = await readFirst(facade.allAlbums$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      facade.init();
-
-      list = await readFirst(facade.allAlbums$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(true);
-    });
-
-    /**
-     * Use `loadAlbumsSuccess` to manually update list
-     */
-    it('allAlbums$ should return the loaded list; and loaded flag == true', async () => {
-      let list = await readFirst(facade.allAlbums$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      store.dispatch(
-        AlbumsActions.loadAlbumsSuccess({
-          albums: [createAlbumsEntity('AAA'), createAlbumsEntity('BBB')],
-        })
-      );
-
-      list = await readFirst(facade.allAlbums$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(2);
-      expect(isLoaded).toBe(true);
+    it('should create', async () => {
+      expect(facade).toBeTruthy();
     });
   });
 });

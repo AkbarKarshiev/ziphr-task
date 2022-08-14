@@ -1,8 +1,8 @@
-<ziphr-task-breadcrumb></ziphr-task-breadcrumb>
+<ziphr-task-breadcrumb automation-id="breadcrumb"></ziphr-task-breadcrumb>
 
 <ng-container *ngIf="post$ | async as post">
-  <h2>
+  <h2 automation-id="title">
     {{ post.title }}
   </h2>
-  <p [innerText]="post.body"></p>
+  <p [innerText]="post.body" automation-id="body"></p>
 </ng-container>

@@ -1,100 +1,65 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-import { NxModule } from '@nrwl/angular';
-import { readFirst } from '@nrwl/angular/testing';
+import { StoreModule } from '@ngrx/store';
+import { of } from "rxjs";
+import { anything, mock, when } from "ts-mockito";
 
-import * as PostsActions from './posts.actions';
+import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
+import { providerOf } from "@ziphr-task/core/testing";
+import { PostsApiService } from "@ziphr-task/posts/api";
+
 import { PostsEffects } from './posts.effects';
 import { PostsFacade } from './posts.facade';
-import { PostsEntity } from './posts.models';
 import {
   POSTS_FEATURE_KEY,
-  PostsState,
-  initialPostsState,
   postsReducer,
+  PostsState,
 } from './posts.reducer';
-import * as PostsSelectors from './posts.selectors';
 
-interface TestSchema {
-  posts: PostsState;
-}
 
 describe('PostsFacade', () => {
   let facade: PostsFacade;
-  let store: Store<TestSchema>;
-  const createPostsEntity = (id: string, name = ''): PostsEntity => ({
-    id,
-    name: name || `name-${id}`,
-  });
+  let localAsyncStorageServiceMock: LocalAsyncStorageService;
+  let postsApiServiceMock: PostsApiService;
 
   describe('used in NgModule', () => {
+    beforeEach(() => {
+      localAsyncStorageServiceMock = mock(LocalAsyncStorageService);
+      postsApiServiceMock = mock(PostsApiService);
+    });
+
     beforeEach(() => {
       @NgModule({
         imports: [
           StoreModule.forFeature(POSTS_FEATURE_KEY, postsReducer),
-          EffectsModule.forFeature([PostsEffects]),
+          EffectsModule.forFeature([PostsEffects])
         ],
-        providers: [PostsFacade],
+        providers: [
+          PostsFacade,
+          providerOf(LocalAsyncStorageService, localAsyncStorageServiceMock),
+          providerOf(PostsApiService, postsApiServiceMock)
+        ]
       })
       class CustomFeatureModule {}
 
       @NgModule({
         imports: [
-          NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
-          CustomFeatureModule,
-        ],
+          CustomFeatureModule
+        ]
       })
       class RootModule {}
-      TestBed.configureTestingModule({ imports: [RootModule] });
+      TestBed.configureTestingModule({ imports: [RootModule]});
 
-      store = TestBed.inject(Store);
+      when(localAsyncStorageServiceMock.getItem(anything())).thenReturn(of(null));
+
       facade = TestBed.inject(PostsFacade);
     });
 
-    /**
-     * The initially generated facade::loadAll() returns empty array
-     */
-    it('loadAll() should return empty list with loaded == true', async () => {
-      let list = await readFirst(facade.allPosts$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      facade.init();
-
-      list = await readFirst(facade.allPosts$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(true);
-    });
-
-    /**
-     * Use `loadPostsSuccess` to manually update list
-     */
-    it('allPosts$ should return the loaded list; and loaded flag == true', async () => {
-      let list = await readFirst(facade.allPosts$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      store.dispatch(
-        PostsActions.loadPostsSuccess({
-          posts: [createPostsEntity('AAA'), createPostsEntity('BBB')],
-        })
-      );
-
-      list = await readFirst(facade.allPosts$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(2);
-      expect(isLoaded).toBe(true);
+    it('should create', async () => {
+      expect(facade).toBeTruthy();
     });
   });
 });

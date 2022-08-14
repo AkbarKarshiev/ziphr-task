@@ -1,41 +1,47 @@
 import { Action } from '@ngrx/store';
 
+import { Album, ALBUMS_STUB } from "@ziphr-task/albums/common";
+
 import * as AlbumsActions from './albums.actions';
-import { AlbumsEntity } from './albums.models';
 import {
+  albumsAdapter,
+  albumsReducer,
   AlbumsState,
   initialAlbumsState,
-  albumsReducer,
 } from './albums.reducer';
 
 describe('Albums Reducer', () => {
-  const createAlbumsEntity = (id: string, name = ''): AlbumsEntity => ({
-    id,
-    name: name || `name-${id}`,
+  const getState = (
+    state?: Partial<AlbumsState>,
+    albums: Album[] = []
+  ): AlbumsState => albumsAdapter.setAll(albums, { ...initialAlbumsState, ...state });
+
+  let state: AlbumsState;
+
+  beforeEach(() => {
+    state = getState();
   });
 
-  describe('valid Albums actions', () => {
-    it('loadAlbumsSuccess should return the list of known Albums', () => {
-      const albums = [
-        createAlbumsEntity('PRODUCT-AAA'),
-        createAlbumsEntity('PRODUCT-zzz'),
-      ];
-      const action = AlbumsActions.loadAlbumsSuccess({ albums });
+  it('restore() should restore albums', () => {
+    const action = AlbumsActions.restore({ albums: ALBUMS_STUB });
+    const result = albumsReducer(state, action);
 
-      const result: AlbumsState = albumsReducer(initialAlbumsState, action);
-
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
-    });
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(ALBUMS_STUB.length);
   });
 
-  describe('unknown action', () => {
-    it('should return the previous state', () => {
-      const action = {} as Action;
+  it('loadSuccess() should add albums', () => {
+    const action = AlbumsActions.loadSuccess({ albums: ALBUMS_STUB });
+    const result = albumsReducer(state, action);
 
-      const result = albumsReducer(initialAlbumsState, action);
+    expect(result.loaded).toBeTruthy();
+    expect(result.ids.length).toBe(ALBUMS_STUB.length);
+  });
 
-      expect(result).toBe(initialAlbumsState);
-    });
+  it('should return the previous state', () => {
+    const action = {} as Action;
+    const result = albumsReducer(initialAlbumsState, action);
+
+    expect(result).toBe(initialAlbumsState);
   });
 });

@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { map, Observable } from "rxjs";
 
-import { RootStateFacade } from "@ziphr-task/core/store/root";
-import { RouterReducerStateExtended } from "@ziphr-task/core/store/root";
-import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
+import { RootStateFacade, RouterReducerStateExtended } from "@ziphr-task/core/store/root";
+import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 
 @Component({
   selector: 'ziphr-task-breadcrumb',

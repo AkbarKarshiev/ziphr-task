@@ -1,66 +1,59 @@
-import { PhotosEntity } from './photos.models';
+import { Photo, PHOTOS_STUB } from "@ziphr-task/photos/common";
+
 import {
+  initialPhotosState,
+  PHOTOS_FEATURE_KEY,
   photosAdapter,
   PhotosPartialState,
-  initialPhotosState,
-} from './photos.reducer';
+  PhotosState
+} from "./photos.reducer";
 import * as PhotosSelectors from './photos.selectors';
 
 describe('Photos Selectors', () => {
-  const ERROR_MSG = 'No Error Available';
-  const getPhotosId = (it: PhotosEntity) => it.id;
-  const createPhotosEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as PhotosEntity);
+  const getStore = (state?: Partial<PhotosState>, photos: Photo[] = []): PhotosPartialState => ({
+    [PHOTOS_FEATURE_KEY]: photosAdapter.setAll(photos, { ...initialPhotosState, ...state})
+  });
+
+  const SELECTED_ID_STUB = PHOTOS_STUB[0].id;
 
   let state: PhotosPartialState;
 
   beforeEach(() => {
-    state = {
-      photos: photosAdapter.setAll(
-        [
-          createPhotosEntity('PRODUCT-AAA'),
-          createPhotosEntity('PRODUCT-BBB'),
-          createPhotosEntity('PRODUCT-CCC'),
-        ],
-        {
-          ...initialPhotosState,
-          selectedId: 'PRODUCT-BBB',
-          error: ERROR_MSG,
-          loaded: true,
-        }
-      ),
-    };
+    state = getStore();
   });
 
-  describe('Photos Selectors', () => {
-    it('getAllPhotos() should return the list of Photos', () => {
-      const results = PhotosSelectors.getAllPhotos(state);
-      const selId = getPhotosId(results[1]);
+  it('selectPhotos() should return photos ', () => {
+    state = getStore({}, PHOTOS_STUB);
+    const results = PhotosSelectors.selectPhotos(state);
 
-      expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(results.length).toBe(PHOTOS_STUB.length);
+  });
 
-    it('getSelected() should return the selected Entity', () => {
-      const result = PhotosSelectors.getSelected(state) as PhotosEntity;
-      const selId = getPhotosId(result);
+  it('selectPhotosCount() should return count', () => {
+    state = getStore({}, PHOTOS_STUB);
+    const result = PhotosSelectors.selectPhotosCount(state);
 
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(result).toBe(PHOTOS_STUB.length);
+  });
 
-    it('getPhotosLoaded() should return the current "loaded" status', () => {
-      const result = PhotosSelectors.getPhotosLoaded(state);
+  it('selectPhotosEntities() should return photos entities', () => {
+    state = getStore({}, PHOTOS_STUB);
+    const result = PhotosSelectors.selectPhotosEntities(state);
 
-      expect(result).toBe(true);
-    });
+    expect(Object.keys(result).length).toBe(PHOTOS_STUB.length);
+  });
 
-    it('getPhotosError() should return the current "error" state', () => {
-      const result = PhotosSelectors.getPhotosError(state);
+  it('selectPhotosLoaded() should return current "loaded" status', () => {
+    state = getStore({ loaded: true });
+    const result = PhotosSelectors.selectPhotosLoaded(state);
 
-      expect(result).toBe(ERROR_MSG);
-    });
+    expect(result).toBeTruthy();
+  });
+
+  it('selectPhoto() should return photo by id', () => {
+    state = getStore({}, PHOTOS_STUB);
+    const result = PhotosSelectors.selectPhoto(SELECTED_ID_STUB + '')(state);
+
+    expect(result?.id).toBe(SELECTED_ID_STUB);
   });
 });

@@ -1,100 +1,63 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-import { NxModule } from '@nrwl/angular';
-import { readFirst } from '@nrwl/angular/testing';
+import { StoreModule } from '@ngrx/store';
+import { of } from "rxjs";
+import { anything, mock, when } from "ts-mockito";
 
-import * as PhotosActions from './photos.actions';
+import { LocalAsyncStorageService } from "@ziphr-task/core/storage/local";
+import { providerOf } from "@ziphr-task/core/testing";
+import { PhotosApiService } from "@ziphr-task/photos/api";
+
 import { PhotosEffects } from './photos.effects';
 import { PhotosFacade } from './photos.facade';
-import { PhotosEntity } from './photos.models';
 import {
   PHOTOS_FEATURE_KEY,
-  PhotosState,
-  initialPhotosState,
   photosReducer,
 } from './photos.reducer';
-import * as PhotosSelectors from './photos.selectors';
-
-interface TestSchema {
-  photos: PhotosState;
-}
 
 describe('PhotosFacade', () => {
   let facade: PhotosFacade;
-  let store: Store<TestSchema>;
-  const createPhotosEntity = (id: string, name = ''): PhotosEntity => ({
-    id,
-    name: name || `name-${id}`,
-  });
+  let localAsyncStorageServiceMock: LocalAsyncStorageService;
+  let photosApiServiceMock: PhotosApiService;
 
   describe('used in NgModule', () => {
+    beforeEach(() => {
+      localAsyncStorageServiceMock = mock(LocalAsyncStorageService);
+      photosApiServiceMock = mock(PhotosApiService);
+    });
+
     beforeEach(() => {
       @NgModule({
         imports: [
           StoreModule.forFeature(PHOTOS_FEATURE_KEY, photosReducer),
-          EffectsModule.forFeature([PhotosEffects]),
+          EffectsModule.forFeature([PhotosEffects])
         ],
-        providers: [PhotosFacade],
+        providers: [
+          PhotosFacade,
+          providerOf(LocalAsyncStorageService, localAsyncStorageServiceMock),
+          providerOf(PhotosApiService, photosApiServiceMock)
+        ]
       })
       class CustomFeatureModule {}
 
       @NgModule({
         imports: [
-          NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
-          CustomFeatureModule,
-        ],
+          CustomFeatureModule
+        ]
       })
       class RootModule {}
-      TestBed.configureTestingModule({ imports: [RootModule] });
+      TestBed.configureTestingModule({ imports: [RootModule]});
 
-      store = TestBed.inject(Store);
+      when(localAsyncStorageServiceMock.getItem(anything())).thenReturn(of(null));
+
       facade = TestBed.inject(PhotosFacade);
     });
 
-    /**
-     * The initially generated facade::loadAll() returns empty array
-     */
-    it('loadAll() should return empty list with loaded == true', async () => {
-      let list = await readFirst(facade.allPhotos$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      facade.init();
-
-      list = await readFirst(facade.allPhotos$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(true);
-    });
-
-    /**
-     * Use `loadPhotosSuccess` to manually update list
-     */
-    it('allPhotos$ should return the loaded list; and loaded flag == true', async () => {
-      let list = await readFirst(facade.allPhotos$);
-      let isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(0);
-      expect(isLoaded).toBe(false);
-
-      store.dispatch(
-        PhotosActions.loadPhotosSuccess({
-          photos: [createPhotosEntity('AAA'), createPhotosEntity('BBB')],
-        })
-      );
-
-      list = await readFirst(facade.allPhotos$);
-      isLoaded = await readFirst(facade.loaded$);
-
-      expect(list.length).toBe(2);
-      expect(isLoaded).toBe(true);
+    it('should create', async () => {
+      expect(facade).toBeTruthy();
     });
   });
 });

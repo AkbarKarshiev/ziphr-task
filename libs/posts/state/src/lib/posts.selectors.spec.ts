@@ -1,66 +1,57 @@
-import { PostsEntity } from './posts.models';
+import { Post, POSTS_STUB } from "@ziphr-task/posts/common";
+
 import {
+  initialPostsState, POSTS_FEATURE_KEY,
   postsAdapter,
   PostsPartialState,
-  initialPostsState,
-} from './posts.reducer';
+PostsState, } from './posts.reducer';
 import * as PostsSelectors from './posts.selectors';
 
 describe('Posts Selectors', () => {
-  const ERROR_MSG = 'No Error Available';
-  const getPostsId = (it: PostsEntity) => it.id;
-  const createPostsEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as PostsEntity);
+  const getStore = (state?: Partial<PostsState>, posts: Post[] = []): PostsPartialState => ({
+    [POSTS_FEATURE_KEY]: postsAdapter.setAll(posts, { ...initialPostsState, ...state})
+  });
+
+  const SELECTED_ID_STUB = POSTS_STUB[0].id;
 
   let state: PostsPartialState;
 
   beforeEach(() => {
-    state = {
-      posts: postsAdapter.setAll(
-        [
-          createPostsEntity('PRODUCT-AAA'),
-          createPostsEntity('PRODUCT-BBB'),
-          createPostsEntity('PRODUCT-CCC'),
-        ],
-        {
-          ...initialPostsState,
-          selectedId: 'PRODUCT-BBB',
-          error: ERROR_MSG,
-          loaded: true,
-        }
-      ),
-    };
+    state = getStore();
   });
 
-  describe('Posts Selectors', () => {
-    it('getAllPosts() should return the list of Posts', () => {
-      const results = PostsSelectors.getAllPosts(state);
-      const selId = getPostsId(results[1]);
+  it('selectPosts() should return posts ', () => {
+    state = getStore({}, POSTS_STUB);
+    const results = PostsSelectors.selectPosts(state);
 
-      expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(results.length).toBe(POSTS_STUB.length);
+  });
 
-    it('getSelected() should return the selected Entity', () => {
-      const result = PostsSelectors.getSelected(state) as PostsEntity;
-      const selId = getPostsId(result);
+  it('selectPostsCount() should return count', () => {
+    state = getStore({}, POSTS_STUB);
+    const result = PostsSelectors.selectPostsCount(state);
 
-      expect(selId).toBe('PRODUCT-BBB');
-    });
+    expect(result).toBe(POSTS_STUB.length);
+  });
 
-    it('getPostsLoaded() should return the current "loaded" status', () => {
-      const result = PostsSelectors.getPostsLoaded(state);
+  it('selectPostsEntities() should return posts entities', () => {
+    state = getStore({}, POSTS_STUB);
+    const result = PostsSelectors.selectPostsEntities(state);
 
-      expect(result).toBe(true);
-    });
+    expect(Object.keys(result).length).toBe(POSTS_STUB.length);
+  });
 
-    it('getPostsError() should return the current "error" state', () => {
-      const result = PostsSelectors.getPostsError(state);
+  it('selectPostsLoaded() should return current "loaded" status', () => {
+    state = getStore({ loaded: true });
+    const result = PostsSelectors.selectPostsLoaded(state);
 
-      expect(result).toBe(ERROR_MSG);
-    });
+    expect(result).toBeTruthy();
+  });
+
+  it('selectPost() should return post by id', () => {
+    state = getStore({}, POSTS_STUB);
+    const result = PostsSelectors.selectPost(SELECTED_ID_STUB + '')(state);
+
+    expect(result?.id).toBe(SELECTED_ID_STUB);
   });
 });
