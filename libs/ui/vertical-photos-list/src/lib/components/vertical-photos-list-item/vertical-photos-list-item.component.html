@@ -1,5 +1,14 @@
-<img [src]="photo.thumbnailUrl" alt="photo-thumb" class="img-fluid">
-<p class="text-truncate mb-0">
+<img
+  [src]="photo.thumbnailUrl"
+  alt="photo-thumb"
+  class="img-fluid"
+  automation-id="photo"
+>
+<p class="text-truncate mb-0" automation-id="title">
   {{ photo.title }}
 </p>
-<a [routerLink]="paths.photo | path : { id: photo.id }" class="stretched-link"></a>
+<a
+  [routerLink]="paths.photo | path : { id: photo.id }"
+  class="stretched-link"
+  automation-id="link"
+></a>

@@ -10,13 +10,16 @@ describe('CardHeaderComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [CardHeaderComponent],
     }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(CardHeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 });

@@ -10,13 +10,16 @@ describe('CardBodyComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [CardBodyComponent],
     }).compileComponents();
-
-    fixture = TestBed.createComponent(CardBodyComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CardBodyComponent);
+    component = fixture.componentInstance;
+  })
+
   it('should create', () => {
+    fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 });

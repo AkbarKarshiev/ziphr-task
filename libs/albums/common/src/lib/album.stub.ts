@@ -14,4 +14,4 @@ export const ALBUM_STUB: Album = {
   title: "quidem molestiae enim"
 }
 
-export const  ALBUMS_STUB: Album[] = [ALBUM_STUB];
+export const ALBUMS_STUB: Album[] = [ALBUM_STUB];

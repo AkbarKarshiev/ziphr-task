@@ -1,5 +1,5 @@
-<div class="row gy-3">
+<div class="row gy-3" automation-id="row">
   <div class="col-12 col-sm-6 col-lg-4 col-xl-3" *ngFor="let album of albums">
-    <ziphr-task-album-list-item [album]="album"></ziphr-task-album-list-item>
+    <ziphr-task-album-list-item automation-id="item" [album]="album"></ziphr-task-album-list-item>
   </div>
 </div>

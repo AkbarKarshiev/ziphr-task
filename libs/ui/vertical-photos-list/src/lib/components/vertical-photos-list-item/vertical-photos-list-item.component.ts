@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+
 import { NavigationPaths, PATHS } from "@ziphr-task/core/navigation/common";
 import { Photo } from "@ziphr-task/photos/common";
 

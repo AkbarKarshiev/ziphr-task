@@ -1,6 +1,10 @@
-<a [routerLink]="paths.post | path : { id: post.id + '' }" class="link-primary d-block text-decoration-none text-truncate mb-1">
+<a
+  [routerLink]="paths.post | path : { id: post.id + '' }"
+  class="link-primary d-block text-decoration-none text-truncate mb-1"
+  automation-id="title"
+>
   {{ post.title }}
 </a>
-<p class="m-0 text-truncate">
+<p class="m-0 text-truncate" automation-id="body">
   {{ post.body }}
 </p>

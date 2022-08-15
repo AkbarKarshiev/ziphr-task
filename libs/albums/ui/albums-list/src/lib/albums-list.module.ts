@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { AlbumsListComponent } from './albums-list.component';
 import { AlbumListItemModule } from "./components/album-list-item/album-list-item.module";

@@ -1,10 +1,23 @@
-<img [src]="photo.url" alt="photo-img" class="img-fluid"/>
-<div class="card-photo-list-item__body">
-  <a [routerLink]="paths.photo | path : { id: photo.id }" class="link-primary text-decoration-none text-truncate d-block">
+<img
+  [src]="photo.url"
+  alt="photo-img"
+  class="img-fluid"
+  automation-id="photo-img"
+/>
+<div class="card-photo-list-item__body" automation-id="body">
+  <a
+    [routerLink]="paths.photo | path : { id: photo.id }"
+    class="link-primary text-decoration-none text-truncate d-block"
+    automation-id="title"
+  >
     {{ photo.title }}
   </a>
   <div *ngIf="viewAlbumLinkEnabled">
-    <a [routerLink]="paths.album | path : { id: photo.albumId }" class="link-primary text-decoration-none">
+    <a
+      [routerLink]="paths.album | path : { id: photo.albumId }"
+      class="link-primary text-decoration-none"
+      automation-id="album"
+    >
       View Album
     </a>
   </div>

@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { VerticalPhotosListItemModule } from "./components/vertical-photos-list-item/vertical-photos-list-item.module";
-
 import { VerticalPhotosListComponent } from './vertical-photos-list.component';
 
 @NgModule({

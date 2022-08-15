@@ -1,3 +1,7 @@
-<a [routerLink]="paths.album | path : { id: album.id }" class="link-primary d-block text-decoration-none text-truncate mb-3">
+<a
+  [routerLink]="paths.album | path : { id: album.id }"
+  class="link-primary d-block text-decoration-none text-truncate mb-3"
+  automation-id="title"
+>
   {{ album.title }}
 </a>

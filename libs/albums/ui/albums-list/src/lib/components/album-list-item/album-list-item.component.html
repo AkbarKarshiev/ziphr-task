@@ -1,19 +1,27 @@
 <ziphr-task-card>
   <ziphr-task-card-header>
-    <a [routerLink]="paths.album | path : { id: album.id }" class="link-primary text-decoration-none d-block text-truncate">
+    <a
+      [routerLink]="paths.album | path : { id: album.id }"
+      class="link-primary text-decoration-none d-block text-truncate"
+      automation-id="title-link"
+    >
       {{ album.title }}
     </a>
   </ziphr-task-card-header>
   <ziphr-task-card-body>
     <div class="row">
       <div class="col-3" *ngFor="let photo of photos$ | async">
-        <img [src]="photo.thumbnailUrl" alt="photo-alt" class="img-fluid">
+        <img [src]="photo.thumbnailUrl" alt="photo-alt" class="img-fluid" automation-id="photo">
       </div>
     </div>
   </ziphr-task-card-body>
   <ziphr-task-card-footer>
     By
-    <a [routerLink]="paths.user | path : { id: album.userId }" class="link-primary text-decoration-none text-truncate">
+    <a
+      [routerLink]="paths.user | path : { id: album.userId }"
+      class="link-primary text-decoration-none text-truncate"
+      automation-id="user-link"
+    >
       User {{ album.userId }}
     </a>
   </ziphr-task-card-footer>
