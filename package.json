@@ -7,7 +7,9 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx serve --port 4545",
     "build": "nx build --prod",
-    "test": "nx test"
+    "test": "nx test",
+    "test-all-libs": "nx run-many --target=test --all --parallel --maxParallel=8",
+    "test-coverage-report": "jest --coverage"
   },
   "private": true,
   "dependencies": {
