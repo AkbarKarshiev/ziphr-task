@@ -1,7 +1,13 @@
 <div class="offcanvas-header">
-  <ziphr-task-logo></ziphr-task-logo>
-  <button type="button" class="btn-close text-reset" aria-label="Close" (click)="activeOffcanvas.dismiss('Cross click')"></button>
+  <ziphr-task-logo automation-id="logo"></ziphr-task-logo>
+  <button
+    type="button"
+    automation-id="dismiss"
+    class="btn-close text-reset"
+    aria-label="Close"
+    (click)="activeOffcanvas.dismiss('Cross click')"
+  ></button>
 </div>
 <div class="offcanvas-body">
-  <ziphr-task-menu></ziphr-task-menu>
+  <ziphr-task-menu automation-id="menu"></ziphr-task-menu>
 </div>

@@ -1,13 +1,11 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from '@angular/core';
 
 import { UserBannerComponent } from './user-banner.component';
-import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [UserBannerComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [UserBannerComponent]
 })
 export class UserBannerModule {}

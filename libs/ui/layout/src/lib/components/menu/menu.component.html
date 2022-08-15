@@ -5,7 +5,7 @@
     'flex-column': orientation === 'vertical'
   }"
 >
-  <li class="nav-item" *ngFor="let link of links; trackBy: trackByFn">
+  <li class="nav-item" automation-id="nav-item" *ngFor="let link of links; trackBy: trackByFn">
     <a
       class="nav-link active"
       #rla="routerLinkActive"

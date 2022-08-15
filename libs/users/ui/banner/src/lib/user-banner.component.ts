@@ -23,10 +23,10 @@ export class UserBannerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.rootRouterState.currentRouteState$.pipe(
+    this.rootRouterState.routeParams$.pipe(
       takeUntil(this.destroy$)
     ).subscribe((params) => {
-      this.user$ = this.usersApiService.loadOneUser(params.params['id']);
+      this.user$ = this.usersApiService.loadOneUser(params['id']);
     });
   }
 }

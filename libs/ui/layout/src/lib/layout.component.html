@@ -1,7 +1,7 @@
 <ng-container [ngSwitch]="layoutTypes$ | async">
   <ng-container *ngSwitchDefault>
     <ziphr-task-header></ziphr-task-header>
-    <main automation-id="tablet+handset">
+    <main automation-id="tablet-handset">
       <ng-container *ngTemplateOutlet="template"></ng-container>
     </main>
   </ng-container>

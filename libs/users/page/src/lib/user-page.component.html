@@ -7,6 +7,7 @@
       <ziphr-task-card-body>
         <ziphr-task-vertical-albums-list
           *ngIf="albums$ | async as albums"
+          automation-id="albums"
           [albums]="albums"
         ></ziphr-task-vertical-albums-list>
       </ziphr-task-card-body>
@@ -20,6 +21,7 @@
       <ziphr-task-card-body>
         <ziphr-task-vertical-posts-list
           *ngIf="posts$ | async as posts"
+          automation-id="posts"
           [posts]="posts"
         ></ziphr-task-vertical-posts-list>
       </ziphr-task-card-body>

@@ -7,19 +7,19 @@
       <ziphr-task-card-body>
         <div class="d-flex justify-content-between">
           <div>
-            <h4 class="d-inline mb-0 text-teal fw-bold">
+            <h4 class="d-inline mb-0 text-teal fw-bold" automation-id="posts-count">
               {{ postsCount$ | async | number }}
             </h4>
             Posts
           </div>
           <div>
-            <h4 class="d-inline mb-0 text-teal fw-bold">
+            <h4 class="d-inline mb-0 text-teal fw-bold" automation-id="albums-count">
               {{ albumsCount$ | async | number }}
             </h4>
             Albums
           </div>
           <div>
-            <h4 class="d-inline mb-0 text-teal fw-bold">
+            <h4 class="d-inline mb-0 text-teal fw-bold" automation-id="photos-count">
               {{ photosCount$ | async | number }}
             </h4>
             Photos
@@ -34,7 +34,7 @@
         Latest Posts
       </ziphr-task-card-header>
       <ziphr-task-card-body>
-        <ziphr-task-vertical-posts-list [posts]="posts$ | async"></ziphr-task-vertical-posts-list>
+        <ziphr-task-vertical-posts-list [posts]="posts$ | async" automation-id="posts-list"></ziphr-task-vertical-posts-list>
       </ziphr-task-card-body>
     </ziphr-task-card>
   </div>
@@ -44,7 +44,7 @@
         Recent Photos
       </ziphr-task-card-header>
       <ziphr-task-card-body>
-        <ziphr-task-vertical-photos-list></ziphr-task-vertical-photos-list>
+        <ziphr-task-vertical-photos-list automation-id="photos-list"></ziphr-task-vertical-photos-list>
       </ziphr-task-card-body>
     </ziphr-task-card>
   </div>

@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { map, Observable } from "rxjs";
+import { map, Observable, takeUntil } from "rxjs";
 
 import { Album } from "@ziphr-task/albums/common";
 import { AlbumsFacade } from "@ziphr-task/albums/state";
+import { RootStateFacade } from "@ziphr-task/core/store/root";
+import { DestroyService } from "@ziphr-task/core/utils/destroy";
 import { Post } from "@ziphr-task/posts/common";
 import { PostsFacade } from "@ziphr-task/posts/state";
 
@@ -11,7 +13,8 @@ import { PostsFacade } from "@ziphr-task/posts/state";
   selector: 'ziphr-task-user-page',
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DestroyService]
 })
 export class UserPageComponent implements OnInit {
   albums$!: Observable<Album[]>;
@@ -20,17 +23,24 @@ export class UserPageComponent implements OnInit {
   constructor(
     private readonly albumsFacade: AlbumsFacade,
     private readonly postsFacade: PostsFacade,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly rootRouterState: RootStateFacade,
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly destroy$: DestroyService
   ) {}
 
   ngOnInit(): void {
-    const userId = +this.activatedRoute.snapshot.params['id'];
-    this.albums$ = this.albumsFacade.albums$.pipe(map((albums) => {
-      return albums.filter((elem) => elem.userId === userId);
-    }));
-    this.posts$ = this.postsFacade.posts$.pipe(map((posts) => {
+    this.rootRouterState.routeParams$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe((params) => {
+      const { id } = params;
 
-      return posts.filter((elem) => elem.userId === userId);
-    }));
+      this.albums$ = this.albumsFacade.albums$.pipe(map((albums) => {
+        return albums.filter((elem) => elem.userId === +id);
+      }));
+      this.posts$ = this.postsFacade.posts$.pipe(map((posts) => {
+
+        return posts.filter((elem) => elem.userId === +id);
+      }));
+    });
   }
 }

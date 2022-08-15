@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { map, Observable } from "rxjs";
 
-import { Post } from "@ziphr-task/posts/common";
 import { AlbumsFacade } from "@ziphr-task/albums/state";
-import { PostsFacade } from "@ziphr-task/posts/state";
-import { PhotosFacade } from "@ziphr-task/photos/state";
 import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
+import { PhotosFacade } from "@ziphr-task/photos/state";
+import { Post } from "@ziphr-task/posts/common";
+import { PostsFacade } from "@ziphr-task/posts/state";
 
 @Component({
   selector: 'ziphr-task-dashboard-page',
@@ -27,11 +27,12 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.albumsCount$ = this.albumsFacade.albumsCount$.pipe(isNotNullOrUndefined());
+    this.postsCount$ = this.postsFacade.postsCount$.pipe(isNotNullOrUndefined());
+    this.photosCount$ = this.photosFacade.photosCount$.pipe(isNotNullOrUndefined());
+
     this.posts$ = this.postsFacade.posts$.pipe(
       isNotNullOrUndefined(),
       map(posts => posts.slice(0, 20))
     );
-    this.postsCount$ = this.postsFacade.postsCount$.pipe(isNotNullOrUndefined());
-    this.photosCount$ = this.photosFacade.photosCount$.pipe(isNotNullOrUndefined());
   }
 }

@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { CardModule } from "@ziphr-task/ui/card";
-import { VerticalPostsListModule } from "@ziphr-task/ui/vertical-posts-list";
 import { VerticalPhotosListModule } from "@ziphr-task/ui/vertical-photos-list";
-
-import { DashboardPageRoutingModule } from "./dashboard-page-routing.module";
+import { VerticalPostsListModule } from "@ziphr-task/ui/vertical-posts-list";
 
 import { DashboardPageComponent } from './dashboard-page.component';
+import { DashboardPageRoutingModule } from "./dashboard-page-routing.module";
 
 @NgModule({
   imports: [

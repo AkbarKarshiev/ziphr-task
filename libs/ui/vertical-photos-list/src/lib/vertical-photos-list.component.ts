@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { map, Observable } from "rxjs";
 
+import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 import { Photo } from "@ziphr-task/photos/common";
 import { PhotosFacade } from "@ziphr-task/photos/state";
-import { isNotNullOrUndefined } from "@ziphr-task/core/utils/operators";
 
 @Component({
   selector: 'ziphr-task-vertical-photos-list',

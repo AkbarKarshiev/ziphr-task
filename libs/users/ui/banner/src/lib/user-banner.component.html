@@ -1,9 +1,12 @@
 <div class="container py-4 py-xl-5" *ngIf="user$ | async as user">
-  <h1 *ngIf="user?.name">
-    {{ user?.name }}
+  <h1 automation-id="name">
+    {{ user.name }}
   </h1>
-  <p class="mb-0 opacity-75" *ngIf="user?.username">
-    @{{ user?.username }} &#8212; {{ user?.email }} &#8212; {{ user?.website }} &#8212; {{ user?.company?.name }}  &#8212;
-    {{ user?.address?.city }}
+  <p class="mb-0 opacity-75" automation-id="details">
+    @{{ user.username }} &#8212;
+    {{ user.email }} &#8212;
+    {{ user.website }} &#8212;
+    {{ user.company?.name }} &#8212;
+    {{ user.address?.city }}
   </p>
 </div>
